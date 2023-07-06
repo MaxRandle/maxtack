@@ -1,3 +1,5 @@
+import "web.scss";
+
 export default function RootLayout({
   children,
 }: {
