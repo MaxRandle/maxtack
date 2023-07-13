@@ -39,11 +39,11 @@
   --base-1500: var(--pearl-1500);
   --base-1600: var(--pearl-1600);
 
-  --bg: var(--base-100);
-  --color: var(--base-1600);
+  --bg: var(--base-200);
+  --color: var(--base-1500);
   @include dark {
-    --bg: var(--base-1600);
-    --color: var(--base-100);
+    --bg: var(--base-1500);
+    --color: var(--base-200);
   }
 }
 

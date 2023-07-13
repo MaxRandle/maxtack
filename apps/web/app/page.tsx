@@ -18,12 +18,12 @@ export default function Page() {
   return (
     <>
       <Section>
-        <Container className="">
+        <Container className="space-y-6 ">
           <Badge>1</Badge>
-          <Typography className="mt-20">fish</Typography>
+          <Typography>fish</Typography>
           <ButtonGroup>
-            <Button>cat</Button>
-            <Button>dog</Button>
+            <Button intent="secondary">cat</Button>
+            <Button intent="secondary">dog</Button>
           </ButtonGroup>
 
           {isLoading ? (
