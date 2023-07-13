@@ -18,7 +18,7 @@ export default function Page() {
   return (
     <>
       <Section>
-        <Container>
+        <Container className="">
           <Badge>1</Badge>
           <Typography className="mt-20">fish</Typography>
           <ButtonGroup>
