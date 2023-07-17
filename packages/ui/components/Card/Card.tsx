@@ -4,17 +4,19 @@ import NextLink from "next/link";
 import React from "react";
 
 const CardVariants = cva(
-  ["rounded-lg overflow-hidden border border-base-400 dark:border-base-1300"],
+  [
+    "rounded-lg overflow-hidden border border-base-400 custom-dark:border-base-1300",
+  ],
   {
     variants: {
       palette: {
-        base: "bg-base-100 dark:bg-base-1600",
-        surface: "bg-base-200 dark:bg-base-1500",
+        base: "bg-base-100 custom-dark:bg-base-1600",
+        surface: "bg-base-200 custom-dark:bg-base-1500",
       },
       elevation: {
         flat: "",
-        low: "shadow-sm dark:shadow-glow-md",
-        high: "shadow-lg dark:shadow-glow-lg",
+        low: "shadow-sm custom-dark:shadow-glow-md",
+        high: "shadow-lg custom-dark:shadow-glow-lg",
       },
     },
     defaultVariants: {
@@ -47,8 +49,8 @@ export const CardLink = React.forwardRef<
   const focusClasses = [
     "transition-colors",
     "focus:ring-active",
-    "hover:bg-base-300 dark:hover:bg-base-1400",
-    "hover:border-base-600 dark:hover:border-base-1000",
+    "hover:bg-base-300 custom-dark:hover:bg-base-1400",
+    "hover:border-base-600 custom-dark:hover:border-base-1000",
   ];
 
   const classes = CardVariants({ palette, elevation });

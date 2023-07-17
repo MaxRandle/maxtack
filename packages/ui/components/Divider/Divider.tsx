@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-const DividerVariants = cva(["border-base-300 dark:border-base-1300"], {
+const DividerVariants = cva(["border-base-300 custom-dark:border-base-1300"], {
   variants: {},
 });
 

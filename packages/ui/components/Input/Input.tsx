@@ -7,15 +7,15 @@ const InputVariants = cva(
 
     // base classes
     "text-base-1100 bg-base-100 border-base-400",
-    "dark:text-base-400 dark:bg-base-1600 dark:border-base-1200",
+    "custom-dark:text-base-400 custom-dark:bg-base-1600 custom-dark:border-base-1200",
 
     // invalid classes
     "invalid:focus:ring-danger",
     "invalid:text-danger-1100 invalid:bg-danger-200 invalid:border-danger-500",
-    "dark:invalid:text-danger-400 dark:invalid:bg-danger-1500 dark:invalid:border-danger-1000",
+    "custom-dark:invalid:text-danger-400 custom-dark:invalid:bg-danger-1500 custom-dark:invalid:border-danger-1000",
 
     // disabled classes
-    "disabled:bg-base-300 disabled:dark:bg-base-1200 disabled:opacity-60",
+    "disabled:bg-base-300 disabled:custom-dark:bg-base-1200 disabled:opacity-60",
 
     // group classes
     "group-[]/input-group:focus:relative",

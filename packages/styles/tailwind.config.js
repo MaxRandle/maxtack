@@ -1,5 +1,15 @@
+const plugin = require("tailwindcss/plugin");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant("custom-dark", [
+        "@media (prefers-color-scheme: dark)",
+        ".dark &",
+      ]);
+    }),
+  ],
   theme: {
     extend: {
       colors: {
@@ -86,8 +96,8 @@ module.exports = {
         },
         screens: {
           sm: "100%",
-          md: "768px",
-          lg: "1024px",
+          md: "48rem",
+          lg: "64rem",
         },
       },
     },

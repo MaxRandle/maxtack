@@ -9,12 +9,10 @@ const HeadingClasses = cva("text-base", {
      */
     palette: {
       inherit: "",
-      base: "text-black dark:text-white group-[]/darkmode:text-white",
-      weak: "text-base-1200 dark:text-base-400 group-[]/darkmode:text-base-400",
-      weaker:
-        "text-base-1000 dark:text-base-700 group-[]/darkmode:text-base-700",
-      primary:
-        "text-primary-1000 dark:text-primary-700 group-[]/darkmode:text-primary-700",
+      base: "text-black custom-dark:text-white",
+      weak: "text-base-1200 custom-dark:text-base-400",
+      weaker: "text-base-1000 custom-dark:text-base-700",
+      primary: "text-primary-1000 custom-dark:text-primary-700",
     },
     /**
      * @summary specifies the size of the text. Defaults to `body`

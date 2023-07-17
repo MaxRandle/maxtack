@@ -30,9 +30,9 @@ const buttonClasses = cva(
         ],
         secondary: [
           "focus:ring-active",
-          "text-base-1200 dark:text-base-400",
-          "bg-base-100 hover:bg-base-200 dark:bg-base-1600 dark:hover:bg-base-1400",
-          "border-base-400 hover:border-base-600 dark:border-base-1200 dark:hover:border-base-1000",
+          "text-base-1200 custom-dark:text-base-400",
+          "bg-base-100 hover:bg-base-200 custom-dark:bg-base-1600 custom-dark:hover:bg-base-1400",
+          "border-base-400 hover:border-base-600 custom-dark:border-base-1200 custom-dark:hover:border-base-1000",
         ],
         destructive: [
           "focus:ring-base",
@@ -51,9 +51,9 @@ const buttonClasses = cva(
       disabled: {
         true: [
           "opacity-60 pointer-events-none",
-          "text-base-900 dark:text-base-400",
-          "bg-base-300 dark:bg-base-1000 hover:bg-base-300 dark:hover:bg-base-1000",
-          "border-base-300 dark:border-base-1000 hover:border-base-300 dark:hover:border-base-1000",
+          "text-base-900 custom-dark:text-base-400",
+          "bg-base-300 custom-dark:bg-base-1000 hover:bg-base-300 custom-dark:hover:bg-base-1000",
+          "border-base-300 custom-dark:border-base-1000 hover:border-base-300 custom-dark:hover:border-base-1000",
         ],
       },
     },
