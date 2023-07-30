@@ -1,9 +1,10 @@
-import { Button, Header } from "ui";
+import { Button } from "ui/components/Button";
+import { Heading } from "ui/components/Heading";
 
 export default function Page() {
   return (
     <>
-      <Header text="Docs" />
+      <Heading>Docs</Heading>
       <Button />
     </>
   );

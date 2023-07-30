@@ -5,6 +5,7 @@ import { Button, ButtonGroup } from "ui/components/Button";
 import { Container } from "ui/components/Container";
 import { Section } from "ui/components/Section";
 import { Typography } from "ui/components/Typography";
+import { Alert } from "ui/components/Alert";
 
 import { useFindPetsByStatus } from "api";
 import { Card, CardContent } from "ui/components/Card";
@@ -52,6 +53,14 @@ export default function Page() {
               {error ? <>{(error as any).stack.message}</> : null}
             </Typography>
           </pre>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Alert title="doi" status="success">
+            cowdoi
+          </Alert>
         </Container>
       </Section>
     </>

@@ -9,20 +9,10 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "eslint": "^8.43.0",
     "eslint-config-custom": "*",
-    "react": "^18.2.0",
-    "tsconfig": "*",
-    "typescript": "^5.1.5"
+    "tsconfig": "*"
   },
   "dependencies": {
-    "@radix-ui/react-avatar": "^1.0.3",
-    "class-variance-authority": "^0.6.1",
-    "next": "^13.4.7",
-    "react-icons": "^4.10.1",
-    "styles": "*",
-    "tailwind-merge": "^1.13.2"
+    "styles": "*"
   }
 }
