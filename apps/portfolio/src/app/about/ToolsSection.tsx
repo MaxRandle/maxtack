@@ -1,10 +1,5 @@
 "use client";
 
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-import { Typography } from "@ui/Typography";
-import { CardContent, CardLink } from "@ui/Card";
-
 import { motion, useInView } from "framer-motion";
 
 import { fadeAndSlideInFromLeft } from "@/utils/animations";
@@ -20,8 +15,8 @@ import { T3Logo } from "@/components/svgs/T3Logo";
 import { TrpcLogo } from "@/components/svgs/TrpcLogo";
 import { useRef } from "react";
 import { TurboRepoLogo } from "@/components/svgs/TurboRepoLogo";
-import { Heading } from "@ui/Heading";
 import { MdxLogo } from "@/components/svgs/MdxLogo";
+import { CardContent, CardLink, Container, Heading, Section } from "ui";
 
 export function ToolsSection() {
   const CONTENT = {

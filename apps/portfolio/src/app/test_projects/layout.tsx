@@ -1,9 +1,7 @@
 "use client";
 
 import { ROUTE_MAP } from "@/config";
-import { Container } from "@ui/Container";
-import { Link } from "@ui/Link";
-import { Section } from "@ui/Section";
+import { Container, Link, Section } from "ui";
 
 export default function ProjectLayout({
   children,

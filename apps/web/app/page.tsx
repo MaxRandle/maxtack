@@ -1,14 +1,17 @@
 "use client";
 
-import { Badge } from "ui/components/Badge";
-import { Button, ButtonGroup } from "ui/components/Button";
-import { Container } from "ui/components/Container";
-import { Section } from "ui/components/Section";
-import { Typography } from "ui/components/Typography";
-import { Alert } from "ui/components/Alert";
-
 import { useFindPetsByStatus } from "api";
-import { Card, CardContent } from "ui/components/Card";
+import {
+  Alert,
+  Badge,
+  Button,
+  ButtonGroup,
+  Card,
+  CardContent,
+  Container,
+  Section,
+  Typography,
+} from "ui";
 
 export default function Page() {
   const { data, isLoading, error } = useFindPetsByStatus({

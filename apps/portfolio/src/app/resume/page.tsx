@@ -1,12 +1,10 @@
 "use client";
 
 import { twMerge } from "tailwind-merge";
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
 
 import MDXResume from "@/content/mdx/resume.mdx";
 import { ROUTE_MAP } from "@/config";
-import { Link } from "@ui/Link";
+import { Container, Link, Section } from "ui";
 
 export default function Page() {
   const pageRootClasses = ["min-h-screen overflow-hidden"];

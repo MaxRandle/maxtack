@@ -1,12 +1,9 @@
 "use client";
 
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useCycleArray } from "@/hooks/useCycleArray";
-import { Heading } from "@ui/Heading";
+import { Container, Heading, Section } from "ui";
 
 export function WorkSection() {
   const CONTENT = {

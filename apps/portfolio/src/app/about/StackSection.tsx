@@ -1,9 +1,6 @@
 "use client";
 
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-import { Typography } from "@ui/Typography";
-import { Card, CardContent } from "@ui/Card";
+import { Section, Container, Typography, Card, CardContent, Heading } from "ui";
 
 import {
   SiNextdotjs,
@@ -14,7 +11,6 @@ import {
 import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Heading } from "@ui/Heading";
 
 function Floaters({ y }: { y: MotionValue<string> }) {
   const MotionIcon = motion(BrandLogoIcon);

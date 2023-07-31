@@ -1,16 +1,18 @@
 "use client";
 
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-import { Typography } from "@ui/Typography";
-import { CardContent, CardLink } from "@ui/Card";
-
-import { Badge } from "@ui/Badge";
-import { Avatar } from "@ui/Avatar";
 import { FiChevronRight } from "react-icons/fi";
 import { PUBLIC_ASSET_MAP, ROUTE_MAP } from "@/config";
 import { ProjectFrontMatter } from "@/utils/files";
-import { Heading } from "@ui/Heading";
+import {
+  Avatar,
+  Badge,
+  CardContent,
+  CardLink,
+  Container,
+  Heading,
+  Section,
+  Typography,
+} from "ui";
 
 export function ProjectsSection({
   projectsFrontMatter,

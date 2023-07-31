@@ -1,12 +1,8 @@
 import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
 import { ProjectMdxContent } from "./ProjectMdxContent";
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-import { Heading } from "@ui/Heading";
-import { Typography } from "@ui/Typography";
-import { Link } from "@ui/Link";
 import { ROUTE_MAP } from "@/config";
 import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
+import { Container, Heading, Link, Section, Typography } from "ui";
 
 /**
  * true (default): Dynamic segments not included in generateStaticParams are generated on demand.

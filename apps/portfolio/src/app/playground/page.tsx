@@ -1,24 +1,33 @@
 "use client";
 
-import { Avatar, AvatarContainer, AvatarGroup } from "@ui/Avatar";
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-import { Palette } from "@ui/Palette";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
-import { Button, ButtonGroup } from "@ui/Button";
-import { Card, CardContent } from "@ui/Card";
-import { Typography } from "@ui/Typography";
-import { Alert } from "@ui/Alert";
 import { FiArrowLeft, FiArrowRight, FiPlus } from "react-icons/fi";
-import { Input, InputAdornment, InputGroup } from "@ui/Input";
 
 import {
   fadeAndSlideInFromLeft,
   fadeAndSlideInFromRight,
 } from "@/utils/animations";
 import { motion } from "framer-motion";
-import { SplitContainer, SplitItem } from "@ui/Split";
-import { Heading } from "@ui/Heading";
+import {
+  Alert,
+  Avatar,
+  AvatarContainer,
+  AvatarGroup,
+  Button,
+  ButtonGroup,
+  Card,
+  CardContent,
+  Container,
+  Heading,
+  Input,
+  InputAdornment,
+  InputGroup,
+  Section,
+  SplitContainer,
+  SplitItem,
+  Typography,
+} from "ui";
+import { Palette } from "@/components/misc/Palette";
 
 export default function Page() {
   const MotionSplitContainer = motion(SplitContainer);

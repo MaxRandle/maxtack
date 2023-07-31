@@ -1,12 +1,10 @@
 "use client";
 
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
 import { AnimatedBrandLogo } from "@/components/brand/AnimatedBrandLogo";
-import { ButtonLink } from "@ui/Button";
 import { motion } from "framer-motion";
 import { ROUTE_MAP } from "@/config";
 import { fadeAndRiseIn } from "@/utils/animations";
+import { ButtonLink, Container, Section } from "ui";
 
 export default function Page() {
   return (
@@ -26,7 +24,7 @@ export default function Page() {
             }}
           >
             <ButtonLink
-              className="shadow-lg drop-shadow-glow-md"
+              className="drop-shadow-glow-md shadow-lg"
               size="lg"
               intent="primary"
               href={ROUTE_MAP.about.root}

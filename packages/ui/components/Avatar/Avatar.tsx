@@ -1,7 +1,7 @@
 import React from "react";
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { twMerge } from "tailwind-merge";
 import { type VariantProps, cva } from "class-variance-authority";
+import NextImage, { ImageProps as NextImageProps } from "next/image";
 
 const AvatarVariants = cva(
   [
@@ -39,38 +39,45 @@ const AvatarVariants = cva(
   }
 );
 
-type AvatarRootProps = React.ComponentPropsWithoutRef<
-  typeof AvatarPrimitive.Root
->;
-
-type AvatarImageProps = React.ComponentPropsWithoutRef<
-  typeof AvatarPrimitive.Image
->;
-
-export type AvatarProps = AvatarRootProps &
-  Pick<AvatarImageProps, "src" | "alt"> &
-  VariantProps<typeof AvatarVariants>;
+export type AvatarProps = Omit<
+  React.ComponentPropsWithoutRef<"div">,
+  "children"
+> & {
+  /**
+   * @summary text to be rendered in place of an image
+   */
+  fallback: string;
+} & VariantProps<typeof AvatarVariants> &
+  Partial<Pick<NextImageProps, "src" | "priority">>;
 
 export const Avatar: React.FC<AvatarProps> = ({
   src,
-  alt,
-  children,
+  fallback,
   className,
   size,
+  priority,
   ...props
 }) => {
   const classes = AvatarVariants({ size });
 
+  const imageSize = (size === "sm" ? 48 : size === "md" ? 64 : 80) * 2; // double for resolution
+
   return (
-    <AvatarPrimitive.Root className={twMerge(classes, className)} {...props}>
-      <AvatarPrimitive.Image
-        className="aspect-square h-full w-full"
-        src={src}
-        alt={alt}
-      />
-      <AvatarPrimitive.Fallback className="flex h-full w-full items-center justify-center rounded-full">
-        {children}
-      </AvatarPrimitive.Fallback>
-    </AvatarPrimitive.Root>
+    <div className={twMerge(classes, className)} {...props}>
+      {src ? (
+        <NextImage
+          className="aspect-square h-full w-full"
+          src={src}
+          alt={fallback}
+          width={imageSize}
+          height={imageSize}
+          priority={priority}
+        />
+      ) : (
+        <span className="flex h-full w-full items-center justify-center rounded-full">
+          {fallback}
+        </span>
+      )}
+    </div>
   );
 };

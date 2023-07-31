@@ -1,7 +1,11 @@
-import { Heading, HeadingProps } from "@ui/Heading";
-import { AnchorLink } from "@ui/Link";
-import { Typography, TypographyProps } from "@ui/Typography";
 import { MDXComponents } from "mdx/types";
+import {
+  AnchorLink,
+  Heading,
+  HeadingProps,
+  Typography,
+  TypographyProps,
+} from "ui";
 
 // This file is required to use MDX in `app` directory.
 // see: https://github.com/vercel/next.js/tree/canary/examples/app-dir-mdx

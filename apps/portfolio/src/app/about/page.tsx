@@ -1,18 +1,16 @@
-import { Container } from "@ui/Container";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
 
 import { ROUTE_MAP } from "@/config";
 
 import { FiExternalLink } from "react-icons/fi";
 
-import { ButtonLink } from "@ui/Button";
-import { Divider } from "@ui/Divider/Divider";
 import { HeroSection } from "./HeroSection";
 import { WorkSection } from "./WorkSection";
 import { StackSection } from "./StackSection";
 import { ToolsSection } from "./ToolsSection";
 import { ProjectsSection } from "./ProjectsSection";
 import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
+import { ButtonLink, Container, Divider } from "ui";
 
 export default async function Page() {
   const projectsFrontMatter = (

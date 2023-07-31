@@ -1,15 +1,11 @@
 "use client";
 
-import { Section } from "@ui/Section";
-import { Container } from "@ui/Container";
-
 import { PUBLIC_ASSET_MAP } from "@/config";
-import { Figure } from "@ui/Figure";
 
 import { motion } from "framer-motion";
 
 import { fadeAndSlideInFromRight } from "@/utils/animations";
-import { Heading } from "@ui/Heading";
+import { Container, Figure, Heading, Section } from "ui";
 
 export function HeroSection() {
   const CONTENT = {

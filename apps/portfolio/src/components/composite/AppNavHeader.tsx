@@ -1,10 +1,9 @@
 "use client";
 
-import { Container } from "@ui/Container";
+import { Container, Nav, NavLink } from "ui";
 import { ROUTE_MAP } from "@/config";
 import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 import { usePathname } from "next/navigation";
-import { Nav, NavLink } from "@ui/Nav";
 
 const navigations = [
   {
