@@ -1,5 +1,11 @@
 {
-  "extends": "tsconfig/react-library.json",
+  "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "lib": ["ES2015", "DOM"],
+    "module": "esnext",
+    "target": "es5"
+  },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }

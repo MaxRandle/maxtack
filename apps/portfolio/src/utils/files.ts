@@ -22,6 +22,21 @@ const getProjectFileNames = () => {
   return projectFileNames;
 };
 
+const getBlogPostFileNames = () => {
+  const absoluteBlogPostFolderPath = path.join(
+    process.cwd(),
+    SRC_ASSET_MAP.mdx.projects.folder
+  );
+
+  // blogPostFileNames is the list of all mdx files inside the absoluteBlogPostFolderPath directory
+  const blogPostFileNames = fs
+    .readdirSync(absoluteBlogPostFolderPath)
+    // Only include md(x) files
+    .filter((path) => /\.mdx?$/.test(path));
+
+  return blogPostFileNames;
+};
+
 /**
  * Gets the slugs of all projects
  * @returns The slugs of all projects
@@ -46,13 +61,24 @@ export type ProjectFrontMatter = {
   thumbnail?: string;
 };
 
-export type Project = {
+export type BlogPostFrontMatter = {
+  slug: string;
+  title: string;
+  year: string;
+  summary: string;
+  tags: string[];
+};
+
+type MdxContent<FrontMatter> = {
   source: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, unknown>
   >;
-  frontMatter: ProjectFrontMatter;
+  frontMatter: FrontMatter;
 };
+
+export type Project = MdxContent<ProjectFrontMatter>;
+export type BlogPost = MdxContent<BlogPostFrontMatter>;
 
 /**
  *
@@ -79,6 +105,34 @@ export const getProjectFromSlug = async (slug: string): Promise<Project> => {
       slug,
       ...data,
     } as ProjectFrontMatter,
+  };
+};
+
+/**
+ *
+ * @param slug - The slug of the blogPost to get
+ * @returns The blogPost with the given slug
+ */
+export const getBlogPostFromSlug = async (slug: string): Promise<BlogPost> => {
+  const filePath = getBlogPostFileNames().find((path) => path.includes(slug));
+
+  if (!filePath) {
+    throw new Error(`No MD or MDX file found for slug ${slug}`);
+  }
+
+  const blogPostFilePath = path.join(
+    SRC_ASSET_MAP.mdx.blogPosts.folder,
+    filePath
+  );
+
+  const { mdxSource, data } = await readAndSerializeMdxFile(blogPostFilePath);
+
+  return {
+    source: mdxSource,
+    frontMatter: {
+      slug,
+      ...data,
+    } as BlogPostFrontMatter,
   };
 };
 

@@ -1,6 +1,5 @@
-import { getProjectFromSlug } from "@/utils/files";
+import { getBlogPostFromSlug } from "@/utils/files";
 import { ROUTE_MAP } from "@/config";
-import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 import { Container, Heading, Link, Section, Typography } from "ui";
 import { MDXRemote } from "next-mdx-remote";
 import { Embed } from "@/components/misc/Embed";
@@ -21,14 +20,14 @@ export default async function Page({ params }: { params: Params }) {
   console.log(params);
   const { slug } = params;
 
-  const { frontMatter, source } = await getProjectFromSlug(slug);
-  const { title, summary, repo } = frontMatter;
+  const { frontMatter, source } = await getBlogPostFromSlug(slug);
+  const { title, summary } = frontMatter;
 
   return (
     <main className="min-h-screen overflow-hidden">
       <Section>
         <Container>
-          <Link href={`${ROUTE_MAP.about.root}#projects`}>
+          <Link href={`${ROUTE_MAP.about.root}`}>
             {`Back to `}
             <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
               {ROUTE_MAP.about.root}
@@ -40,7 +39,6 @@ export default async function Page({ params }: { params: Params }) {
           <Typography className="mt-4" level={"subheading"} palette="weaker">
             {summary}
           </Typography>
-          {repo ? <GithubRepositoryChip className="mt-12" repo={repo} /> : null}
         </Container>
       </Section>
 
