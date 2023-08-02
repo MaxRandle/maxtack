@@ -1,5 +1,11 @@
 {
   "private": true,
+  "name": "maxtack",
+  "packageManager": "npm@9.2.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -28,12 +34,6 @@
     "turbo": "^1.10.6",
     "typescript": "^5.1.6"
   },
-  "name": "maxtack",
-  "packageManager": "npm@9.2.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",

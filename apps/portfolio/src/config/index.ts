@@ -10,6 +10,9 @@ export const ROUTE_MAP = {
   projects: {
     slug: (slug: string) => `/projects/${slug}`,
   },
+  blogPosts: {
+    slug: (slug: string) => `/blog/${slug}`,
+  },
 } as const;
 
 export type Route = GetLeafNodeUnion<typeof ROUTE_MAP>;
@@ -17,6 +20,7 @@ export type Route = GetLeafNodeUnion<typeof ROUTE_MAP>;
 export const SRC_ASSET_MAP = {
   mdx: {
     projects: { folder: "src/content/mdx/projects" },
+    blogPosts: { folder: "src/content/mdx/blog-posts" },
     resume: "src/content/mdx/resume.mdx",
   },
 } as const;
