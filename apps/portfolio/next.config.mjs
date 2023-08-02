@@ -3,6 +3,7 @@ import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ["ui"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
     // mdxRs: true,
