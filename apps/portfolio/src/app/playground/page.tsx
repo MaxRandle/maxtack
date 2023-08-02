@@ -65,37 +65,43 @@ export default function Page() {
             <Avatar
               size="sm"
               src="https://placekitten.com/200/200"
-            >{`CF`}</Avatar>
-            <Avatar size="sm">{`CF`}</Avatar>
+              fallback="CF"
+            />
+            <Avatar size="sm" fallback="CF" />
             <Avatar
               size="sm"
               src={"https://placekitten.com/240/240"}
-            >{`CF`}</Avatar>
-            <Avatar size="sm">{`+5`}</Avatar>
+              fallback="CF"
+            />
+            <Avatar size="sm" fallback="+5" />
           </AvatarGroup>
           <AvatarGroup>
             <Avatar
               size="md"
               src="https://placekitten.com/200/200"
-            >{`CF`}</Avatar>
-            <Avatar size="md">{`CF`}</Avatar>
+              fallback="CF"
+            />
+            <Avatar size="md" fallback="CF" />
             <Avatar
               size="md"
               src={"https://placekitten.com/240/240"}
-            >{`CF`}</Avatar>
-            <Avatar size="md">{`+5`}</Avatar>
+              fallback="CF"
+            />
+            <Avatar size="md" fallback="+5" />
           </AvatarGroup>
           <AvatarGroup>
             <Avatar
               size="lg"
               src="https://placekitten.com/200/200"
-            >{`CF`}</Avatar>
-            <Avatar size="lg">{`CF`}</Avatar>
+              fallback="CF"
+            />
+            <Avatar size="lg" fallback="CF" />
             <Avatar
               size="lg"
               src={"https://placekitten.com/240/240"}
-            >{`CF`}</Avatar>
-            <Avatar size="lg">{`+5`}</Avatar>
+              fallback="CF"
+            />
+            <Avatar size="lg" fallback="+5" />
           </AvatarGroup>
         </Container>
       </Section>
@@ -139,7 +145,7 @@ export default function Page() {
           <Card className="mt-6" elevation="high">
             <CardContent>
               <AvatarContainer>
-                <Avatar src="https://placekitten.com/220/220">{`CF`}</Avatar>
+                <Avatar src="https://placekitten.com/220/220" fallback="CF" />
                 <div>
                   <Heading level="h3">Cat Catterson</Heading>
                   <Typography level="body" palette="weaker">
