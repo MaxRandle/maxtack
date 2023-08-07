@@ -1,23 +1,21 @@
-import { getBlogPostFromSlug } from "@/utils/files";
+import { getBlogPostFromSlug, getBlogPostSlugs } from "@/utils/files";
 import { ROUTE_MAP } from "@/config";
 import { Container, Heading, Link, Section, Typography } from "ui";
 import { MDXRemote } from "next-mdx-remote";
 import { Embed } from "@/components/misc/Embed";
+import { MdxRemoteContent } from "@/components/misc/MdxRemoteContent";
 
 type Params = {
   slug: string;
 };
 
 export function generateStaticParams(): Params[] {
-  return [
-    {
-      slug: "intuitive-colors",
-    },
-  ];
+  return getBlogPostSlugs().map((slug) => ({
+    slug,
+  }));
 }
 
 export default async function Page({ params }: { params: Params }) {
-  console.log(params);
   const { slug } = params;
 
   const { frontMatter, source } = await getBlogPostFromSlug(slug);
@@ -44,7 +42,7 @@ export default async function Page({ params }: { params: Params }) {
 
       <Section>
         <Container>
-          <MDXRemote components={{ Embed: Embed as never }} {...source} />
+          <MdxRemoteContent {...source} />
         </Container>
       </Section>
     </main>

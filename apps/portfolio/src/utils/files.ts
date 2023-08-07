@@ -25,7 +25,7 @@ const getProjectFileNames = () => {
 const getBlogPostFileNames = () => {
   const absoluteBlogPostFolderPath = path.join(
     process.cwd(),
-    SRC_ASSET_MAP.mdx.projects.folder
+    SRC_ASSET_MAP.mdx.blogPosts.folder
   );
 
   // blogPostFileNames is the list of all mdx files inside the absoluteBlogPostFolderPath directory
@@ -49,6 +49,20 @@ export const getProjectSlugs = () => {
   );
 
   return projectSlugs;
+};
+
+/**
+ * Gets the slugs of all blogPosts
+ * @returns The slugs of all blogPosts
+ */
+export const getBlogPostSlugs = () => {
+  const blogPostFileNames = getBlogPostFileNames();
+
+  const blogPostSlugs = blogPostFileNames.map((filePath) =>
+    filePath.replace(/\.mdx?$/, "")
+  );
+
+  return blogPostSlugs;
 };
 
 export type ProjectFrontMatter = {

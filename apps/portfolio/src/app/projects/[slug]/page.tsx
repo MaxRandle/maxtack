@@ -1,8 +1,8 @@
 import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
-import { ProjectMdxContent } from "./ProjectMdxContent";
 import { ROUTE_MAP } from "@/config";
 import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 import { Container, Heading, Link, Section, Typography } from "ui";
+import { MdxRemoteContent } from "@/components/misc/MdxRemoteContent";
 
 /**
  * true (default): Dynamic segments not included in generateStaticParams are generated on demand.
@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: Params }) {
 
       <Section>
         <Container>
-          <ProjectMdxContent {...source} />
+          <MdxRemoteContent {...source} />
         </Container>
       </Section>
     </main>
