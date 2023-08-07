@@ -5,9 +5,6 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   transpilePackages: ["ui"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
-  experimental: {
-    // mdxRs: true,
-  },
   reactStrictMode: true,
   images: {
     domains: ["dummyimage.com", "placekitten.com"],
@@ -19,8 +16,6 @@ const withMDX = createMDX({
     extension: /\.mdx?$/,
     remarkPlugins: [remarkGfm],
     rehypePlugins: [],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
   },
 });
 export default withMDX(nextConfig);
