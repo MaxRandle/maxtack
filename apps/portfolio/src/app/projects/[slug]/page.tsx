@@ -21,7 +21,6 @@ export function generateStaticParams(): Params[] {
 }
 
 export default async function Page({ params }: { params: Params }) {
-  console.log(params);
   const { slug } = params;
 
   const { frontMatter, source } = await getProjectFromSlug(slug);

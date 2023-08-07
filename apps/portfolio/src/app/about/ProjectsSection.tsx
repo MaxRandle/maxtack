@@ -42,7 +42,7 @@ export function ProjectsSection({
                           src={PUBLIC_ASSET_MAP.media.projects.thumbnails.fileName(
                             thumbnail
                           )}
-                          alt={title}
+                          fallback={title}
                         />
                       ) : null}
                       <div>
