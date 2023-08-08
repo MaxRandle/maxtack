@@ -1,1 +1,59 @@
-# Yee
+# Intuitive colours
+
+In this blog I will explain a simple and intuitive approach for generating a colour palette that produces stunning and incredibly visually consistent results.
+
+## Forget everything you know about colour
+
+Or at least how computers represent colour. In order to understand why this approach works, you need to completely shift your perspective on the concept of what a colour is.
+
+### RGB, hex, and HSL do not actually represent colours.
+
+RGB (and by extension hex and HSL) is a representation of the state of a piece of hardware. It is an instruction to be given to a pixel that tells it how much of red, green, and blue light it should emit.
+
+## The LAB colour space
+
+Unlike RGB, The LAB colour space does not the represent hardware or even the physical properties of light. Instead it represents how humans perceive colours.
+
+LAB represents a cylindrical colour space. It has three components:
+
+- L: Lightness
+- A: Green to red
+- B: Blue to yellow
+
+These components can be thought of as cartesian coordinates used to navigate a 3D cylindrical colour space.
+
+### LAB is designed to be perceptually uniform
+
+Each property is completely independent of the others.
+
+## LAB is not intuitive to work with.
+
+Humans are much better at intuitively grasping polar co-ordinates.
+
+## Introducing LCH
+
+LCH is a polar representation of the LAB colour space. It defines a specification for how to represent a colour using the following components:
+
+| Component       | Description                                                                                                                                                                                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| L _(lightness)_ | This does NOT represent luminosity or brightness. Remember LCH does not represent physical properties of light. It represents how "light" a colour is appears. This ranges between 0 and 100, with 0 being black and 100 being white. |
+| C _(chroma)_    | This represents how much a colour is expressed, it can also be thought of as saturation. This property starts at 0 and is unbounded.                                                                                                  |
+| H _(hue)_       | This represents the angle around the colour wheel. This property starts at 0 and is unbounded.                                                                                                                                        |
+
+## Introducing OKLCH
+
+OKLCH is an actual implementation of the LCH specification that we can use right now with a postcss plugin.
+
+```css
+background-color: oklch(50% 100 0deg);
+```
+
+OKLCH is the ultimate way to numerically represent a colour.
+
+## Most devices are still limited to sRGB
+
+## We can still make use of the power of OKLCH without actually using it
+
+## Introducing the OKLCH colour palette generator
+
+with this we can generate out colour palette using OKLCH and represent it using hex or RGB.

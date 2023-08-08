@@ -85,3 +85,7 @@ Learn more about the power of Turborepo:
 | Command                             | Description                                       |
 | ----------------------------------- | ------------------------------------------------- |
 | `npm i [dep] --workspace=[app/pkg]` | Install a dependency in a specific app or package |
+
+# todo
+
+- [ ] Add Get rid of the enter button in the intro screen
