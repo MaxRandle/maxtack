@@ -11,7 +11,7 @@ const navigations = [
     content: <BrandLogoIcon className="shrink-0" />,
   },
   { url: ROUTE_MAP.about.root, content: "About" },
-  { url: ROUTE_MAP.playground.root, content: "Playground" },
+  { url: ROUTE_MAP.blogPosts.slug("intuitive-colours"), content: "Blog" },
 ];
 
 export const AppNavHeader = () => {

@@ -3,24 +3,24 @@ import { twMerge } from "tailwind-merge";
 type PaletteProps = React.ComponentPropsWithoutRef<"div">;
 export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
   const colors = [
-    [
-      "bg-base-100",
-      "bg-base-200",
-      "bg-base-300",
-      "bg-base-400",
-      "bg-base-500",
-      "bg-base-600",
-      "bg-base-700",
-      "bg-base-800",
-      "bg-base-900",
-      "bg-base-1000",
-      "bg-base-1100",
-      "bg-base-1200",
-      "bg-base-1300",
-      "bg-base-1400",
-      "bg-base-1500",
-      "bg-base-1600",
-    ],
+    // [
+    //   "bg-base-100",
+    //   "bg-base-200",
+    //   "bg-base-300",
+    //   "bg-base-400",
+    //   "bg-base-500",
+    //   "bg-base-600",
+    //   "bg-base-700",
+    //   "bg-base-800",
+    //   "bg-base-900",
+    //   "bg-base-1000",
+    //   "bg-base-1100",
+    //   "bg-base-1200",
+    //   "bg-base-1300",
+    //   "bg-base-1400",
+    //   "bg-base-1500",
+    //   "bg-base-1600",
+    // ],
     [
       "bg-primary-100",
       "bg-primary-200",
@@ -75,24 +75,24 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "bg-info-1500",
       "bg-info-1600",
     ],
-    [
-      "bg-warning-100",
-      "bg-warning-200",
-      "bg-warning-300",
-      "bg-warning-400",
-      "bg-warning-500",
-      "bg-warning-600",
-      "bg-warning-700",
-      "bg-warning-800",
-      "bg-warning-900",
-      "bg-warning-1000",
-      "bg-warning-1100",
-      "bg-warning-1200",
-      "bg-warning-1300",
-      "bg-warning-1400",
-      "bg-warning-1500",
-      "bg-warning-1600",
-    ],
+    // [
+    //   "bg-warning-100",
+    //   "bg-warning-200",
+    //   "bg-warning-300",
+    //   "bg-warning-400",
+    //   "bg-warning-500",
+    //   "bg-warning-600",
+    //   "bg-warning-700",
+    //   "bg-warning-800",
+    //   "bg-warning-900",
+    //   "bg-warning-1000",
+    //   "bg-warning-1100",
+    //   "bg-warning-1200",
+    //   "bg-warning-1300",
+    //   "bg-warning-1400",
+    //   "bg-warning-1500",
+    //   "bg-warning-1600",
+    // ],
     [
       "bg-danger-100",
       "bg-danger-200",
@@ -120,7 +120,13 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       {colors.map((shades, idx) => (
         <div key={idx} className="flex grow flex-col gap-2">
           {shades.map((shade) => (
-            <div key={shade} className={`aspect-square rounded-md ${shade}`} />
+            <div
+              key={shade}
+              className={`aspect-[2.5] rounded-md ${shade} flex items-center justify-evenly`}
+            >
+              <p className="text-white">Aa</p>
+              <p className="text-black">Aa</p>
+            </div>
           ))}
         </div>
       ))}
