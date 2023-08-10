@@ -1,9 +1,9 @@
 # Intuitive colours
 
-<p className="mx-auto max-w-xl text-center">
+<span className="mx-auto block max-w-xl text-center">
   A simple and intuitive approach for generating a visually consistent and
   accessible colour spectrum.
-</p>
+</span>
 
 <Palette className="mt-8" />
 
@@ -21,9 +21,9 @@ Unlike the sRGB colour space, The LAB colour space does not the represent hardwa
 
 LAB is a cylindrical colour space with three axes:
 
-- L: Lightness
-- A: Green to red
-- B: Blue to yellow
+- L - Lightness
+- A - Green to red
+- B - Blue to yellow
 
 These components can be thought of as cartesian coordinates used to navigate a 3D cylindrical colour space.
 
@@ -41,17 +41,19 @@ LCH is the ultimate way to numerically represent a colour.
 
 It is simply a way to navigate the LAB colour space using polar co-ordinates. It too has 3 axes:
 
-### Lightness (L)
+### L - Lightness
 
 This does NOT represent luminosity or brightness. Remember the LAB colour space has no relevance to the physical properties of light. It represents how "light" a colour is appears. This ranges between 0 and 100, with 0 being black and 100 being white.
 
-### chroma (C)
+### C - Chroma
 
 This represents how strongly a colour is expressed, it can also be thought of as saturation. This property starts at 0 and is unbounded.
 
-### Hue (H)
+### H - Hue
 
 Hue represents the angle around the colour wheel. This property starts at 0 and is unbounded.
+
+![lch-color-space](/media/lch-color-space.jpg)
 
 ## OKLCH - an implementation of LCH in CSS
 
@@ -61,9 +63,17 @@ OKLCH is an actual implementation of the LCH specification that can be used righ
 background-color: oklch(50% 100 0deg);
 ```
 
-## Introducing the OKLCH colour palette generator
+## Introducing the OKLCH colour picker
 
 with this we can generate out colour palette using OKLCH and represent it using hex or RGB.
+
+[OKLCH colour picker](https://oklch.com/)
+
+<Embed
+  src="https://evilmartians.github.io/oklch-picker"
+  width="full"
+  aspect="video"
+/>
 
 ## Most devices are still limited to sRGB
 

@@ -41,6 +41,9 @@ export const PUBLIC_ASSET_MAP = {
       },
       issInterface: "/media/projects/iss-interface.jpeg",
     },
+    blogPosts: {
+      lchColorSpace: "/media/blog-posts/lch-color-space.jpg",
+    },
   },
 } as const;
 
