@@ -13,47 +13,45 @@ Or at least how computers represent colour. In order to understand why this appr
 
 ### RGB, hex, and HSL do not actually represent colours.
 
-This is the first revelation to wrap your head around. RGB (and by extension hex and HSL) is a representation of the state of a piece of hardware. It is an instruction to be given to a pixel that tells it how much of red, green, and blue light it should emit. It is not tied to a real-world concept of a colour.
+This is the first revelation to wrap your head around. RGB (and by extension hex and HSL) is a representation of the state of a piece of hardware. It is an instruction to be given to a pixel that tells it how much of red, green, and blue light it should emit. It is not tied to a real-world concept of a colour. It follows from this that the sRGB is a standardised representation of the capabilities of hardware.
 
-## The LAB colour space
+## The CIELAB colour space
 
-Unlike the sRGB colour space, The LAB colour space does not the represent hardware capabilities or even the physical properties of light. Instead it represents human perception of colour.
+<Embed
+  src="https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a9/Visible_gamut_within_CIELCHab_color_space_D65_whitepoint_mesh.webm/Visible_gamut_within_CIELCHab_color_space_D65_whitepoint_mesh.webm.480p.vp9.webm"
+  width="full"
+  aspect="video"
+/>
 
-LAB is a cylindrical colour space with three axes:
-
-- L - Lightness
-- A - Green to red
-- B - Blue to yellow
-
-These components can be thought of as cartesian coordinates used to navigate a 3D cylindrical colour space.
-
-### LAB is designed to be perceptually uniform
-
-Each property is completely independent of the others.
-
-### LAB is not intuitive to work with.
-
-In general, humans are not very good at working with cartesian co-ordinates in the real world. We are much better at intuitively grasping polar co-ordinates.
+Unlike the sRGB colour space, The CIELAB colour space does not the represent hardware capabilities or even the physical properties of light. Instead it represents human perception of colour.
 
 ## Introducing LCH
 
-LCH is the ultimate way to numerically represent a colour.
+LCH is the ultimate way to express a colour.
 
-It is simply a way to navigate the LAB colour space using polar co-ordinates. It too has 3 axes:
+It is simply a way to navigate the CIELAB colour space using polar co-ordinates. It has 3 axes:
 
 ### L - Lightness
 
-This does NOT represent luminosity or brightness. Remember the LAB colour space has no relevance to the physical properties of light. It represents how "light" a colour is appears. This ranges between 0 and 100, with 0 being black and 100 being white.
+This does NOT represent luminosity. Remember the CIELAB colour space has no relation to the physical properties of light. It represents how "light" a colour is appears. This is expressed as a percentage from 0% and 100%, with 0% being black and 100% being white.
 
 ### C - Chroma
 
-This represents how strongly a colour is expressed, it can also be thought of as saturation. This property starts at 0 and is unbounded.
+This represents how strongly a hue is expressed, it can also be thought of as saturation. This property starts at 0 and is unbounded.
 
 ### H - Hue
 
-Hue represents the angle around the colour wheel. This property starts at 0 and is unbounded.
+Hue represents the angle in degrees around the colour wheel from 0° to 360°.
 
 ![lch-color-space](/media/lch-color-space.jpg)
+
+## Perceptual uniformity
+
+The CIELAB colour space is designed to be perceptually uniform.
+
+By setting lightness to 70%, youre saying: "I want a colour that humans will perceive as being 70% light". The colour will always be percieved as such regardless of the hue or chroma. The same is true for chroma and hue.
+
+A product of this is that each variable is completely independent of the others. This makes LCH extremely easy and intuitive to work with because we can tweak each variable in isolation.
 
 ## OKLCH - an implementation of LCH in CSS
 
@@ -63,28 +61,59 @@ OKLCH is an actual implementation of the LCH specification that can be used righ
 background-color: oklch(50% 100 0deg);
 ```
 
-## Introducing the OKLCH colour picker
+You can play around with the [OKLCH colour picker](https://oklch.com/).
 
-with this we can generate out colour palette using OKLCH and represent it using hex or RGB.
+## Generating a colour palette
 
-[OKLCH colour picker](https://oklch.com/)
+Now we're ready to generate some colours.
 
-<Embed
-  src="https://evilmartians.github.io/oklch-picker"
-  width="full"
-  aspect="video"
-/>
+1. Come up with a sequence of lightness values.
+1. Pick a chroma for each lightness value that looks good across a range of hues. Ensuring that no hue results in a colour that appears vastly more saturated than the others for a given lightness value.
+1. Appoint each Lightness-Chroma pair a shade value.
+1. Pick some hues to fit your brand. For example "emerald" at hue 155 as our primary brand color and "sky" at hue 230 as our secondary brand colour.
+1. Generate an OKLCH colour for each shade and hue combination using a sass loop.
+
+### Example
+
+```
+Shade   Lightness     Chroma
+  100         98%       0.02
+  200         96%       0.04
+  300         92%       0.08
+  400         86%       0.15
+  500         80%       0.18
+  600         74%       0.23
+  700         68%       0.27
+  800         61%       0.25
+  900         54%       0.22
+ 1000         47%       0.19
+ 1100         40%       0.16
+ 1200         34%       0.12
+ 1300         28%       0.09
+ 1400         22%       0.06
+ 1500         16%       0.04
+ 1600         12%       0.04
+```
+
+```scss
+--emerald-600: oklch(74% 0.23 155);
+--sky-1100: oklch(40% 0.16 230);
+```
 
 ## Most devices are still limited to sRGB
 
-By using oklch in our css, we're specifying what colour we want, and allowing physical devices to attempt to reproduce that colour as faithfully as possible withing the constraints of their hardware. But what if the device only supports sRGB?
+By using oklch in our css, we're specifying what colour we want, and allowing physical devices to attempt to reproduce that colour as faithfully as possible withing the constraints of their hardware. So what actually happens when a device that only supports sRGB is given an OKLCH colour?
 
-## fallback colours
+## Fallback colours
 
-Oklch implements an approach to calculating an sRGB fallback for colours that transcend sRGB. The chroma is reduced until the colour is within the sRGB colour space. This means that in the worst case scenario, the colour will be desaturated, but it will still have the same hue and lightness. Meaning that there is no risk of accessibility issues.
+Oklch implements an approach to calculating an sRGB fallback for colours that transcend sRGB. The chroma is reduced until the colour is within the sRGB colour space. Therefore OKLCH is fully backwards compatible. This means that in the worst case scenario the colour will be desaturated but it will still have the same hue and lightness meaning that there is no risk of accessibility issues.
 
-## We can still make use of the power of OKLCH without actually using it
+## Leveraging OKLCH without actually using it
 
 This is the best part. We can generate our colour palette using the OKLCH colour picker, and while doing so we ensure that our colours also fall within the sRGB colour space. We can then use the generated hex or RGB values in our css.
 
 This has all the benefits of using OKLCH directly, the only downside being that we sacrifice vibrant colours on devices that might support extended colour spaces.
+
+```
+
+```
