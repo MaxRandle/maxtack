@@ -33,7 +33,7 @@ It is simply a way to navigate the CIELAB colour space using polar co-ordinates.
 
 ### L - Lightness
 
-This does NOT represent luminosity. Remember the CIELAB colour space has no relation to the physical properties of light. It represents how "light" a colour is appears. This is expressed as a percentage from 0% and 100%, with 0% being black and 100% being white.
+This does NOT represent luminosity. Remember the CIELAB colour space has no relation to the physical properties of light. It represents how "light" a colour is appears. This is expressed as a percentage from 0% to 100%, with 0% being black and 100% being white.
 
 ### C - Chroma
 
@@ -49,16 +49,16 @@ Hue represents the angle in degrees around the colour wheel from 0° to 360°.
 
 The CIELAB colour space is designed to be perceptually uniform.
 
-By setting lightness to 70%, youre saying: "I want a colour that humans will perceive as being 70% light". The colour will always be percieved as such regardless of the hue or chroma. The same is true for chroma and hue.
+By setting lightness to 70%, youre saying: "I want a colour that humans will perceive as being 70% light". The colour will always be percieved as such regardless of the hue or chroma. The same is true for the other properties.
 
-A product of this is that each variable is completely independent of the others. This makes LCH extremely easy and intuitive to work with because we can tweak each variable in isolation.
+A result of this is that each variable is completely independent of the others. This makes LCH extremely easy and intuitive to work with because we can tweak each variable in isolation.
 
 ## OKLCH - an implementation of LCH in CSS
 
 OKLCH is an actual implementation of the LCH specification that can be used right now with a postcss plugin.
 
-```css
-background-color: oklch(50% 100 0deg);
+```scss
+background-color: oklch(50% 0.1 0deg);
 ```
 
 You can play around with the [OKLCH colour picker](https://oklch.com/).
@@ -71,7 +71,7 @@ Now we're ready to generate some colours.
 1. Pick a chroma for each lightness value that looks good across a range of hues. Ensuring that no hue results in a colour that appears vastly more saturated than the others for a given lightness value.
 1. Appoint each Lightness-Chroma pair a shade value.
 1. Pick some hues to fit your brand. For example "emerald" at hue 155 as our primary brand color and "sky" at hue 230 as our secondary brand colour.
-1. Generate an OKLCH colour for each shade and hue combination using a sass loop.
+1. Generate an OKLCH colour for each shade and hue combination using a sass map.
 
 ### Example
 
@@ -95,10 +95,21 @@ Shade   Lightness     Chroma
  1600         12%       0.04
 ```
 
+resulting variables:
+
 ```scss
---emerald-600: oklch(74% 0.23 155);
---sky-1100: oklch(40% 0.16 230);
+--emerald-1100: oklch(40% 0.16 155);
 ```
+
+<div className="mt-4 grow rounded-md bg-success-1100 p-4 text-white">
+  {`emerald-1100`}
+</div>
+
+```scss
+--sky-400: oklch(86% 0.15 230);
+```
+
+<div className="mt-4 grow rounded-md bg-info-400 p-4 text-black">{`sky-400`}</div>
 
 ## Most devices are still limited to sRGB
 
