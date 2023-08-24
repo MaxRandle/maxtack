@@ -103,7 +103,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
   const classes = "grid grid-cols-5 gap-2 justify-center max-w-lg mx-auto";
 
   return (
-    <div className={twMerge(classes, className)}>
+    <div className={twMerge(classes, className)} {...props}>
       <div />
       {hueKeys.map((hue) => (
         <div key={hue} className="flex h-10 items-center justify-evenly">
