@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: Params }) {
   const { title, summary } = frontMatter;
 
   return (
-    <main className="min-h-screen overflow-hidden">
+    <main className="min-h-screen overflow-hidden bg-white dark:bg-black">
       <Section>
         <Container>
           <Link href={`${ROUTE_MAP.about.root}`}>
