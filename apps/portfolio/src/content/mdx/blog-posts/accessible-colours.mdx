@@ -11,6 +11,10 @@
 
 Or at least how computers represent colour. In order to understand why this approach works, you need to completely shift your perspective on the concept of what a colour is.
 
+## Why are colours hard?
+
+When most developers or designers think of colour, they think of RGB, hex, and HSL. These are the colour spaces that we use in CSS. They are also the colour spaces that are used by most design tools. But here's the thing...
+
 ### RGB, hex, and HSL do not actually represent colours.
 
 This is the first revelation to wrap your head around. RGB (and by extension hex and HSL) is a representation of the state of a piece of hardware. It is an instruction to be given to a pixel that tells it how much of red, green, and blue light it should emit. It is not tied to a real-world concept of a colour. It follows from this that the sRGB is a standardised representation of the capabilities of hardware.
@@ -53,14 +57,14 @@ The CIELAB colour space is designed to be perceptually uniform.
 
 By setting lightness to 70%, youre saying: "I want a colour that humans will perceive as being 70% light". The colour will always be percieved as such regardless of the hue or chroma. The same is true for the other properties.
 
-A result of this is that each variable is completely independent of the others. This makes LCH extremely easy and intuitive to work with because we can tweak each variable in isolation.
+A result of this is that each variable is completely independent of the others. This makes LCH extremely easy and intuitive to work with because we can tweak each variable in isolation and make very deliberate adjustments to colours in an intuitive way.
 
 ## OKLCH - an implementation of LCH in CSS
 
-OKLCH is an actual implementation of the LCH specification that can be used right now with a postcss plugin.
+OKLCH is an actual implementation of the LCH specification. It has not achieved widespread browser support yet, but it can still be safely used right now with a postcss plugin.
 
 ```scss
-background-color: oklch(50% 0.1 0deg);
+background-color: oklch(50% 0.1 15deg);
 ```
 
 You can play around with the [OKLCH colour picker](https://oklch.com/).

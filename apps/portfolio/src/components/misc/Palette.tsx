@@ -114,7 +114,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
         <Fragment key={shade}>
           <div
             key={shade}
-            className="flex h-10 items-center justify-evenly rounded-md border border-base-300"
+            className="flex h-10 items-center justify-evenly rounded-md border border-base-300 dark:border-base-1200"
           >
             <Typography color="weak">{shade}</Typography>
           </div>
