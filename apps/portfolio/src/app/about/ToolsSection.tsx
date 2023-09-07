@@ -91,6 +91,7 @@ export function ToolsSection() {
   const ref = useRef(null);
   const inView = useInView(ref, {
     margin: "0% 0% -60% 0%",
+    once: true,
   });
 
   return (
