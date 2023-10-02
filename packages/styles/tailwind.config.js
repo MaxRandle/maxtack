@@ -3,11 +3,19 @@ const plugin = require("tailwindcss/plugin");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   plugins: [
-    plugin(function ({ addVariant }) {
+    plugin(function ({ addVariant, addUtilities }) {
       addVariant("custom-dark", [
         "@media (prefers-color-scheme: dark)",
         ".dark &",
       ]);
+      addUtilities({
+        ".inset-center": {
+          // top: "50%",
+          // left: "50%",
+          "@apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2":
+            {},
+        },
+      });
     }),
   ],
   theme: {

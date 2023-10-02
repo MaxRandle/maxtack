@@ -3,8 +3,7 @@ export type GetLeafNodeUnion<T> = T extends Record<string, any>
   : T;
 
 export const ROUTE_MAP = {
-  intro: { root: "/" },
-  about: { root: "/about" },
+  about: { root: "/" },
   playground: { root: "/playground" },
   resume: { root: "/resume" },
   projects: {

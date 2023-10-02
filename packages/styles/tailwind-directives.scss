@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 @layer utilities {
-  .ring-active {
-    @apply border-primary-600 outline-none ring-4 ring-primary-300 custom-dark:border-primary-700 custom-dark:ring-primary-1300;
-  }
-  // TODO figure out why the word "danger" is not allowed
-  // .ring-danger {
-  //   @apply border-danger-600 outline-none ring-4 ring-danger-300 custom-dark:border-danger-700 custom-dark:ring-danger-1300;
+  // .ring-base {
+  //   @apply border-base-800 ring-base-400 custom-dark:border-base-700 custom-dark:ring-base-1300 outline-none ring-4;
   // }
-  .ring-base {
-    @apply border-base-800 outline-none ring-4 ring-base-400 custom-dark:border-base-500 custom-dark:ring-base-1200;
+  .ring-active {
+    @apply border-primary-800 ring-primary-400 custom-dark:border-primary-700 custom-dark:ring-primary-1300 outline-none ring-4;
+  }
+  .ring-danger {
+    @apply border-danger-800 outline-none ring-4 ring-danger-400 custom-dark:border-danger-700 custom-dark:ring-danger-1300;
   }
 }

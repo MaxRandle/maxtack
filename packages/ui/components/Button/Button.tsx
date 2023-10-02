@@ -4,6 +4,7 @@ import NextLink from "next/link";
 
 const buttonClasses = cva(
   [
+    "focus:ring-active",
     "font-semibold tracking-wider border rounded-full shadow-sm inline-flex items-center justify-center gap-4 transition-colors",
 
     "group-[]/button-group:px-4",
@@ -23,19 +24,16 @@ const buttonClasses = cva(
        */
       intent: {
         primary: [
-          "focus:ring-base",
           "text-white",
           "bg-primary-1000 hover:bg-primary-900",
           "border-primary-1000 hover:border-primary-900",
         ],
         secondary: [
-          "focus:ring-active",
           "text-base-1200 custom-dark:text-base-400",
           "bg-base-100 hover:bg-base-200 custom-dark:bg-base-1600 custom-dark:hover:bg-base-1400",
           "border-base-400 hover:border-base-600 custom-dark:border-base-1200 custom-dark:hover:border-base-1000",
         ],
         destructive: [
-          "focus:ring-base",
           "text-white",
           "bg-danger-1000 hover:bg-danger-900",
           "border-danger-1000 hover:border-danger-900",

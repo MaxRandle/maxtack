@@ -7,11 +7,20 @@ import { usePathname } from "next/navigation";
 
 const navigations = [
   {
-    url: ROUTE_MAP.intro.root,
+    id: "1",
+    url: ROUTE_MAP.about.root,
     content: <BrandLogoIcon className="shrink-0" />,
   },
-  { url: ROUTE_MAP.about.root, content: "About" },
-  { url: ROUTE_MAP.blogPosts.slug("accessible-colours"), content: "Blog" },
+  {
+    id: "2",
+    url: ROUTE_MAP.about.root,
+    content: "About",
+  },
+  {
+    id: "3",
+    url: ROUTE_MAP.blogPosts.slug("accessible-colours"),
+    content: "Blog",
+  },
 ];
 
 export const AppNavHeader = () => {
@@ -20,8 +29,8 @@ export const AppNavHeader = () => {
   return (
     <Nav>
       <Container className="flex items-center justify-between gap-6 sm:justify-start sm:gap-20">
-        {navigations.map(({ url, content }) => (
-          <NavLink isActive={pathname === url} key={url} href={url}>
+        {navigations.map(({ url, content, id }) => (
+          <NavLink isActive={pathname === url} key={id} href={url}>
             {content}
           </NavLink>
         ))}

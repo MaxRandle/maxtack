@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import { fadeAndSlideInFromRight } from "@/utils/animations";
 import { Container, Figure, Heading, Section } from "ui";
+import { AnimatedBrandLogo } from "@/components/brand/AnimatedBrandLogo";
 
 export function HeroSection() {
   const CONTENT = {
@@ -21,13 +22,15 @@ export function HeroSection() {
   const MotionFigure = motion(Figure);
 
   return (
-    <Section spacing={"lg"}>
+    <Section className="relative h-60 sm:h-80" spacing={"lg"}>
+      <AnimatedBrandLogo className="absolute inset-0 h-60 sm:h-80" />
+
       <MotionContainer
-        className="mx-auto flex flex-col items-center justify-center gap-4 text-center sm:flex-row sm:gap-6 sm:text-left"
+        className="absolute mx-auto flex flex-col items-center justify-center gap-4 text-center inset-center sm:flex-row sm:gap-6 sm:text-left"
         variants={{
           visible: {
             transition: {
-              delayChildren: 0,
+              delayChildren: 5,
               staggerChildren: 0.15,
               duration: 0.6,
             },
