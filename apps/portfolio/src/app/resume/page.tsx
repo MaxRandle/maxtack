@@ -16,7 +16,7 @@ export default function Page() {
           <Link className="print:hidden" href={ROUTE_MAP.about.root}>
             {`Back to `}
             <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
-              {ROUTE_MAP.about.root}
+              about
             </code>
           </Link>
           <MDXResume />

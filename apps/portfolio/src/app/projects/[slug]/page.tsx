@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: Params }) {
           <Link href={`${ROUTE_MAP.about.root}#projects`}>
             {`Back to `}
             <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
-              {ROUTE_MAP.about.root}
+              about
             </code>
           </Link>
           <Heading className="mt-12" level={"h1"}>
