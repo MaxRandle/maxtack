@@ -1,9 +1,12 @@
-import "@/styles/portfolio-theme.scss";
+"use client";
 
-export const metadata = {
-  title: "Max Randle",
-  description: "Max Randle's portfolio website.",
-};
+import "@/styles/portfolio-theme.scss";
+import { atom } from "jotai";
+
+// export const metadata = {
+//   title: "Max Randle",
+//   description: "Max Randle's portfolio website.",
+// };
 
 export default function RootLayout({
   children,
@@ -16,3 +19,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+// atoms ----------------------------------------------------------------------
+
+export const ShouldAnimateLogoAtom = atom<boolean>(true);

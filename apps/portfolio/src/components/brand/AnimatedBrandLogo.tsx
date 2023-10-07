@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useAnimate } from "framer-motion";
 import React, { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
@@ -6,9 +8,13 @@ type AnimatedBrandLogoProps = React.ComponentPropsWithoutRef<
   typeof motion.svg
 > & {
   className?: string;
+  shouldAnimate?: boolean;
+  setShouldAnimate?: (arg: boolean) => void;
 };
 
 export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
+  shouldAnimate = true,
+  setShouldAnimate,
   className,
   ...props
 }) => {
@@ -17,6 +23,10 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
   const [leftPathScore, _2] = useAnimate();
 
   useEffect(() => {
+    if (!shouldAnimate) {
+      return;
+    }
+
     animate([
       [
         [leftPathScore.current, rightPathScore.current],
@@ -66,7 +76,16 @@ export const AnimatedBrandLogo: React.FC<AnimatedBrandLogoProps> = ({
         { at: "<", duration: 1.5, ease: [0.64, 0, 0.36, 1] },
       ],
     ]);
-  });
+
+    setShouldAnimate?.(false);
+  }, [
+    animate,
+    leftPathScore,
+    rightPathScore,
+    setShouldAnimate,
+    shouldAnimate,
+    svgScope,
+  ]);
 
   return (
     <motion.svg

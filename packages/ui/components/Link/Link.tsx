@@ -27,3 +27,19 @@ export const AnchorLink: React.FC<AnchorLinkProps> = ({
 
   return <a className={twMerge(classes, className)} {...props} />;
 };
+
+export type LinkStyleButtonProps = React.ComponentPropsWithoutRef<"button">;
+
+export const LinkStyleButton: React.FC<LinkStyleButtonProps> = ({
+  className,
+  ...props
+}) => {
+  const classes = LinkVariants({});
+
+  return (
+    <button
+      className={twMerge("focus:ring-active rounded-md", classes, className)}
+      {...props}
+    />
+  );
+};

@@ -10,12 +10,13 @@
     "format": "prettier . --write"
   },
   "dependencies": {
+    "api": "*",
+    "jotai": "^2.4.3",
     "next": "^13.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "*",
     "styles": "*",
-    "api": "*"
+    "ui": "*"
   },
   "devDependencies": {
     "eslint-config-custom": "*",

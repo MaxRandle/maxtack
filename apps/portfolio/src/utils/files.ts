@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
-import rehypeHighlight from "rehype-highlight/lib";
+import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 
 const getFileNamesFromFolder = (folderPath: string): string[] => {
