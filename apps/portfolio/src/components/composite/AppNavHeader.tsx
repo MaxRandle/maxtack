@@ -15,7 +15,7 @@ const navigations = [
   },
   {
     id: "2",
-    url: ROUTE_MAP.blogPosts.slug("accessible-colours"),
+    url: ROUTE_MAP.blogPosts.root,
     content: "Blog",
   },
 ];

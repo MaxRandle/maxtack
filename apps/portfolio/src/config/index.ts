@@ -10,6 +10,7 @@ export const ROUTE_MAP = {
     slug: (slug: string) => `/projects/${slug}`,
   },
   blogPosts: {
+    root: "/blog",
     slug: (slug: string) => `/blog/${slug}`,
   },
 } as const;

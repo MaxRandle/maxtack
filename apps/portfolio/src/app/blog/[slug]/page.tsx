@@ -1,8 +1,6 @@
 import { getBlogPostFromSlug, getBlogPostSlugs } from "@/utils/files";
 import { ROUTE_MAP } from "@/config";
-import { Container, Heading, Link, Section, Typography } from "ui";
-import { MDXRemote } from "next-mdx-remote";
-import { Embed } from "@/components/misc/Embed";
+import { Container, Link, Section } from "ui";
 import { MdxRemoteContent } from "@/components/misc/MdxRemoteContent";
 
 type Params = {
@@ -18,25 +16,18 @@ export function generateStaticParams(): Params[] {
 export default async function Page({ params }: { params: Params }) {
   const { slug } = params;
 
-  const { frontMatter, source } = await getBlogPostFromSlug(slug);
-  const { title, summary } = frontMatter;
+  const { source } = await getBlogPostFromSlug(slug);
 
   return (
     <main className="min-h-screen overflow-hidden bg-white dark:bg-black">
       <Section>
         <Container>
-          <Link href={`${ROUTE_MAP.about.root}`}>
+          <Link href={`${ROUTE_MAP.blogPosts.root}`}>
             {`Back to `}
             <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
-              about
+              blog
             </code>
           </Link>
-          <Heading className="mt-12" level={"h1"}>
-            {title}
-          </Heading>
-          <Typography className="mt-4" level={"subheading"} palette="weaker">
-            {summary}
-          </Typography>
         </Container>
       </Section>
 

@@ -1,0 +1,71 @@
+---
+title: TypeScript enums are stupid
+year: 2023
+summary: A practical insight into the bewildering stupidity of TypeScript enums
+---
+
+# TypeScript enums are stupid
+
+<span className="mx-auto mb-24 block max-w-xl text-center">
+  ### A practical insight into the bewildering stupidity of TypeScript enums
+</span>
+
+## The appeal of enums
+
+On paper, enums allow you to define a constrained set of named constants. This provides type safety, useful editor feedback, and intellisense.
+
+```ts
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+
+const myFunc = (color?: Color) => {
+  if (color) {
+    console.log("I received a color");
+  } else {
+    console.log("No color received");
+  }
+};
+```
+
+Seems innocent enough. Until you try calling `myFunc` with `Color.Red`:
+
+```ts
+myFunc(Color.Red);
+
+> "No color received"
+```
+
+Hmmmmm... ???
+
+## Enums at runtime
+
+So when a developer is confronted with something as seemingly absurd as this, their natural instinct would likely be to try to log the value of the color argument.
+
+```ts
+const myFunc = (color?: Color) => {
+  console.log(color);
+};
+```
+
+Anticipation building...
+
+```ts
+myFunc(Color.Red);
+
+> 0
+```
+
+"Ok I don't know what I was expecting but it certainly wasn't that."
+
+What's the next logical step? Log the entire enum:
+
+```ts
+console.log(Color);
+
+> { '0': 'Red', '1': 'Green', '2': 'Blue', Red: 0, Green: 1, Blue: 2 }
+```
+
+Fascinating... This raises more questions than answers but at least you'll now understand why `myFunc(Color.Red)` didn't work. It's because `Color.Red` is falsy when evaluated as a boolean. In fact, the first entry in any enum will always evaluate as falsy.
