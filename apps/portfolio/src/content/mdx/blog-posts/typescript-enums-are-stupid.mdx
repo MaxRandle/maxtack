@@ -20,7 +20,15 @@ enum Color {
   Green,
   Blue,
 }
+```
 
+Enum values can only be addressed by using the "dot" syntax: `EnumName.ValueName`. Eg: `Color.Red`.
+
+In addition to the above benefits, this syntax is advantageous for refactoring. If your needed to rename `Color.Red` to `Color.Crimson`, you could easily find all references to `Color.Red` in your code base.
+
+But enums are not what they seem. Let's look at a simple example:
+
+```ts
 const myFunc = (color?: Color) => {
   if (color) {
     console.log("I received a color");
@@ -69,3 +77,65 @@ console.log(Color);
 ```
 
 Fascinating... This raises more questions than answers but at least you'll now understand why `myFunc(Color.Red)` didn't work. It's because `Color.Red` is falsy when evaluated as a boolean. In fact, the first entry in any enum will always evaluate as falsy.
+
+## How to safely use enums
+
+Ok so what if instead of letting TypeScript implicitly assign values, we take the time to assign sensible and descriptive values ourselves?
+
+```ts
+enum Color {
+  Red = "red",
+  Green = "green",
+  Blue = "blue",
+}
+
+console.log(Color);
+
+> { Red: 'red', Green: 'green', Blue: 'blue' }
+```
+
+This looks much more sane and it also fixes our falsy problem. But this kind of feels like a workaround and also defeats the purpose of having enums in the first place. We have to manually assign values and repeat ourselves. You might also justifiably feel a bit grossed out by enums in general at this point and decide that they aren't worthy of your trust.
+
+## You deserve better
+
+### Union types
+
+```ts
+type Color = "red" | "green" | "blue";
+```
+
+Clean and simple. Don't be so fast to dismiss union types, often this will fulfil all your type safety needs.
+
+Unfortunately you lose the ability to have the "dot" syntax, `Color.Red` is not a thing with this approach. This leaves something to be desired if you're attached to the idea of having a single source of truth for your constants.
+
+### POJOs
+
+If we're determined to have dot syntax, we might as well just use a plain old JavaScript object.
+
+```ts
+const Color = {
+  Red: "red",
+  Green: "green",
+  Blue: "blue",
+} as const;
+
+// The object type can be overridden
+type Color = (typeof Color)[keyof typeof Color];
+```
+
+This is a perfectly valid approach that offers the same behaviour as an enum but in a more familiar way.
+
+We can derive a type from the object and in doing so the `Color` type ends up as a union of all the values in the object. It's a slightly ugly bit of TypeScript gymnastics but it's just about palatable and it could be made into a generic utility type.
+
+### String literal arrays
+
+```ts
+const ColorsArray = ["red", "green", "blue"] as const;
+
+// again we can derive a union type
+type Color = (typeof ColorsArray)[number];
+```
+
+This approach is cleaner than the POJO approach but it comes at the sacrifice of the dot syntax.
+
+One notable advantage of this approach is that you can iterate over the values in the array. If you wanted to do this with the POJO approach, you'd have to convert the object to an array of values.

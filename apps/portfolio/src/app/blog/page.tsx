@@ -12,24 +12,6 @@ export default async function Page() {
     heading: "My Blog",
   };
 
-  enum Color {
-    Red,
-    Green,
-    Blue,
-  }
-
-  console.log(Color);
-
-  const myFunc = (color?: Color) => {
-    if (color) {
-      console.log("I received a color");
-    } else {
-      console.log("No color received");
-    }
-  };
-
-  myFunc(Color.Red);
-
   return (
     <main className="min-h-screen overflow-hidden">
       <Section id="blog-posts">
