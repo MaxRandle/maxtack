@@ -1,3 +1,4 @@
+import { AppNavHeader } from "@/components/composite/AppNavHeader";
 import { ROUTE_MAP } from "@/config";
 
 import { getBlogPostSlugs, getBlogPostFromSlug } from "@/utils/files";
@@ -14,14 +15,9 @@ export default async function Page() {
 
   return (
     <main className="min-h-screen overflow-hidden">
+      <AppNavHeader />
       <Section id="blog-posts">
         <Container>
-          <Link href={`${ROUTE_MAP.about.root}`}>
-            {`Back to `}
-            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
-              about
-            </code>
-          </Link>
           <Heading className="mt-20" level={"h2"}>
             {CONTENT.heading}
           </Heading>
