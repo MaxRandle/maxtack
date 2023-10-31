@@ -1,7 +1,8 @@
 import { getBlogPostFromSlug, getBlogPostSlugs } from "@/utils/files";
 import { ROUTE_MAP } from "@/config";
 import { Container, Link, Section } from "ui";
-import { MdxRemoteContent } from "@/components/misc/MdxRemoteContent";
+
+import { MdxRemoteContentRsc } from "@/components/misc/MdxRemoteContentRsc";
 
 type Params = {
   slug: string;
@@ -33,7 +34,7 @@ export default async function Page({ params }: { params: Params }) {
 
       <Section>
         <Container>
-          <MdxRemoteContent {...source} />
+          <MdxRemoteContentRsc source={source} />
         </Container>
       </Section>
     </main>

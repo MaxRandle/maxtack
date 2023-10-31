@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { MDXComponentsMap } from "@/mdx-components";
 import { MDXProvider } from "@mdx-js/react";
@@ -8,5 +8,6 @@ export default function ProjectLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>;
+  // return <MDXProvider components={MDXComponentsMap}>{children}</MDXProvider>;
+  return children;
 }

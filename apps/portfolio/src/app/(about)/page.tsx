@@ -9,14 +9,9 @@ import { WorkSection } from "./WorkSection";
 import { StackSection } from "./StackSection";
 import { ToolsSection } from "./ToolsSection";
 import { ProjectsSection } from "./ProjectsSection";
-import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
 import { ButtonLink, Container, Divider } from "ui";
 
 export default async function Page() {
-  const projectsFrontMatter = (
-    await Promise.all(getProjectSlugs().map(getProjectFromSlug))
-  ).map((project) => project.frontMatter);
-
   return (
     <main className="min-h-screen overflow-hidden">
       <AppNavHeader />
@@ -42,7 +37,7 @@ export default async function Page() {
 
       <ToolsSection />
 
-      <ProjectsSection projectsFrontMatter={projectsFrontMatter} />
+      <ProjectsSection />
     </main>
   );
 }

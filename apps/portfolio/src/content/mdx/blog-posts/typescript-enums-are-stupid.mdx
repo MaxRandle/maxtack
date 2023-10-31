@@ -68,7 +68,7 @@ myFunc(Color.Red);
 
 "Ok I don't know what I was expecting but it certainly wasn't that."
 
-What's the next logical step? Log the entire enum:
+Let's log the entire enum:
 
 ```ts
 console.log(Color);
@@ -76,7 +76,9 @@ console.log(Color);
 > { '0': 'Red', '1': 'Green', '2': 'Blue', Red: 0, Green: 1, Blue: 2 }
 ```
 
-Fascinating... This raises more questions than answers but at least you'll now understand why `myFunc(Color.Red)` didn't work. It's because `Color.Red` is falsy when evaluated as a boolean. In fact, the first entry in any enum will always evaluate as falsy.
+What a mess... Fascinating.
+
+This raises more questions than answers but at least you'll now understand why `myFunc(Color.Red)` didn't work. It's because `Color.Red` is falsy when evaluated as a boolean. In fact, the first entry in any enum will always evaluate as falsy.
 
 ## How to safely use enums
 

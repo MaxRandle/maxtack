@@ -1,8 +1,12 @@
-"use client";
+// "use client";
 
 import { FiChevronRight } from "react-icons/fi";
 import { PUBLIC_ASSET_MAP, ROUTE_MAP } from "@/config";
-import { ProjectFrontMatter } from "@/utils/files";
+import {
+  ProjectFrontMatter,
+  getProjectFromSlug,
+  getProjectSlugs,
+} from "@/utils/files";
 import {
   Avatar,
   Badge,
@@ -14,14 +18,16 @@ import {
   Typography,
 } from "ui";
 
-export function ProjectsSection({
-  projectsFrontMatter,
-}: {
-  projectsFrontMatter: ProjectFrontMatter[];
-}) {
+export async function ProjectsSection() {
   const CONTENT = {
     heading: "My Projects",
   };
+
+  const projectsFrontMatter = (
+    await Promise.all(getProjectSlugs().map(getProjectFromSlug))
+  ).map((project) => project.frontMatter);
+
+  console.log("projectsFrontMatter", projectsFrontMatter);
 
   return (
     <Section id="projects" spacing={"lg"}>

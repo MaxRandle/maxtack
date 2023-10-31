@@ -2,7 +2,7 @@ import { getProjectSlugs, getProjectFromSlug } from "@/utils/files";
 import { ROUTE_MAP } from "@/config";
 import { GithubRepositoryChip } from "@/components/misc/GithubRepositoryChip";
 import { Container, Heading, Link, Section, Typography } from "ui";
-import { MdxRemoteContent } from "@/components/misc/MdxRemoteContent";
+import { MdxRemoteContentRsc } from "@/components/misc/MdxRemoteContentRsc";
 
 /**
  * true (default): Dynamic segments not included in generateStaticParams are generated on demand.
@@ -23,8 +23,7 @@ export function generateStaticParams(): Params[] {
 export default async function Page({ params }: { params: Params }) {
   const { slug } = params;
 
-  const { frontMatter, source } = await getProjectFromSlug(slug);
-  const { title, summary, repo } = frontMatter;
+  const { source, frontMatter } = await getProjectFromSlug(slug);
 
   return (
     <main className="min-h-screen overflow-hidden">
@@ -37,18 +36,20 @@ export default async function Page({ params }: { params: Params }) {
             </code>
           </Link>
           <Heading className="mt-12" level={"h1"}>
-            {title}
+            {frontMatter.title}
           </Heading>
           <Typography className="mt-4" level={"subheading"} palette="weaker">
-            {summary}
+            {frontMatter.summary}
           </Typography>
-          {repo ? <GithubRepositoryChip className="mt-12" repo={repo} /> : null}
+          {frontMatter.repo ? (
+            <GithubRepositoryChip className="mt-12" repo={frontMatter.repo} />
+          ) : null}
         </Container>
       </Section>
 
       <Section>
         <Container>
-          <MdxRemoteContent {...source} />
+          <MdxRemoteContentRsc source={source} />
         </Container>
       </Section>
     </main>

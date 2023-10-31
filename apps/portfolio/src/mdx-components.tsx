@@ -66,6 +66,7 @@ export const MDXComponentsMap: MDXComponents = {
     />
   ),
   pre: (props) => <pre className="mt-4 print:mt-2 print:text-xs" {...props} />,
+  code: (props) => <code {...props} />,
   hr: (props) => <hr className="mt-4 print:mt-2" {...props} />,
   table: (props) => (
     <table
@@ -80,6 +81,7 @@ export const MDXComponentsMap: MDXComponents = {
   td: (props) => <td className="pl-4 first:pl-0" {...props} />,
 };
 
+// https://nextjs.org/docs/app/building-your-application/configuring/mdx#getting-started
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...MDXComponentsMap,
