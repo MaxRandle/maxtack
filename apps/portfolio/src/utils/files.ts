@@ -1,7 +1,6 @@
 import { SRC_ASSET_MAP } from "@/config";
 import fs, { promises } from "fs";
 import matter from "gray-matter";
-import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 import path from "path";
 
 const getMdxFileNamesFromFolder = (folderPath: string): string[] => {

@@ -1,13 +1,17 @@
-"use client";
-
 import { twMerge } from "tailwind-merge";
 
-import MDXResume from "@/content/mdx/resume.mdx";
-import { ROUTE_MAP } from "@/config";
+import { ROUTE_MAP, SRC_ASSET_MAP } from "@/config";
 import { Container, Link, Section } from "ui";
+import { MdxRemoteContentRsc } from "@/components/misc/MdxRemoteContentRsc";
+import { readMdxFile } from "@/utils/files";
+import path from "path";
 
-export default function Page() {
+export default async function Page() {
   const pageRootClasses = ["min-h-screen overflow-hidden"];
+
+  const { source } = await readMdxFile(
+    path.join(process.cwd(), SRC_ASSET_MAP.mdx.resume)
+  );
 
   return (
     <main className={twMerge(pageRootClasses, "print:font-resume")}>
@@ -19,7 +23,8 @@ export default function Page() {
               about
             </code>
           </Link>
-          <MDXResume />
+          {/* mdx content can be rendered directly once remark-gfm gets fixed. */}
+          <MdxRemoteContentRsc source={source} />
         </Container>
       </Section>
     </main>
