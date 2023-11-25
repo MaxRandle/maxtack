@@ -9,7 +9,7 @@ import { WorkSection } from "./WorkSection";
 import { StackSection } from "./StackSection";
 import { ToolsSection } from "./ToolsSection";
 import { ProjectsSection } from "./ProjectsSection";
-import { ButtonLink, Container, Divider } from "ui";
+import { ButtonStyleLink, Container, Divider } from "ui";
 
 export default async function Page() {
   return (
@@ -20,14 +20,14 @@ export default async function Page() {
 
       <Container className="flex w-full items-center">
         <Divider className="grow" />
-        <ButtonLink
+        <ButtonStyleLink
           className="inline-flex items-center gap-2"
           intent={"secondary"}
           href={ROUTE_MAP.resume.root}
         >
           {`résumé`}
           <FiExternalLink />
-        </ButtonLink>
+        </ButtonStyleLink>
         <Divider className="grow" />
       </Container>
 

@@ -83,10 +83,12 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export type ButtonLinkProps = React.ComponentPropsWithoutRef<typeof NextLink> &
+export type ButtonStyleLinkProps = React.ComponentPropsWithoutRef<
+  typeof NextLink
+> &
   VariantProps<typeof buttonClasses>;
 
-export const ButtonLink: React.FC<ButtonLinkProps> = ({
+export const ButtonStyleLink: React.FC<ButtonStyleLinkProps> = ({
   className,
   intent,
   size,
