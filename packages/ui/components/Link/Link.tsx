@@ -16,16 +16,23 @@ export const Link: React.FC<LinkProps> = ({ className, ...props }) => {
   return <NextLink className={twMerge(classes, className)} {...props} />;
 };
 
-export type AnchorLinkProps = React.ComponentPropsWithoutRef<"a"> &
+export type ExternalLinkProps = React.ComponentPropsWithoutRef<"a"> &
   VariantProps<typeof LinkVariants>;
 
-export const AnchorLink: React.FC<AnchorLinkProps> = ({
+export const ExternalLink: React.FC<ExternalLinkProps> = ({
   className,
   ...props
 }) => {
   const classes = LinkVariants({});
 
-  return <a className={twMerge(classes, className)} {...props} />;
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      className={twMerge(classes, className)}
+      {...props}
+    />
+  );
 };
 
 export type LinkStyleButtonProps = React.ComponentPropsWithoutRef<"button">;

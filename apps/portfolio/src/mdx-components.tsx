@@ -1,6 +1,7 @@
 import { MDXComponents } from "mdx/types";
 import {
-  AnchorLink,
+  ExternalLink,
+  ExternalLinkProps,
   Heading,
   HeadingProps,
   Typography,
@@ -40,10 +41,9 @@ export const MDXComponentsMap: MDXComponents = {
       {...props}
     />
   ),
-  a: (props) => (
-    <AnchorLink
+  a: (props: ExternalLinkProps) => (
+    <ExternalLink
       className="mt-4 print:mt-2 print:text-xs print:font-normal print:text-base-1100 print:dark:text-base-600"
-      target="_blank"
       {...props}
     />
   ),
