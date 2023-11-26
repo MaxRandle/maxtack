@@ -115,19 +115,31 @@ Unfortunately you lose the ability to have the "dot" syntax, `Color.Red` is not 
 If we're determined to have dot syntax, we might as well just use a plain old JavaScript object.
 
 ```ts
-const Color = {
+// color.ts
+
+export const Color = {
   Red: "red",
   Green: "green",
   Blue: "blue",
 } as const;
 
 // The object type can be overridden
-type Color = (typeof Color)[keyof typeof Color];
+export type Color = (typeof Color)[keyof typeof Color];
 ```
 
 This is a perfectly valid approach that offers the same behaviour as an enum but in a more familiar way.
 
-We can derive a type from the object and in doing so the `Color` type ends up as a union of all the values in the object. It's a slightly ugly bit of TypeScript gymnastics but it's just about palatable and it could be made into a generic utility type.
+We can derive a type from the object and in doing so the `Color` type ends up as a union of all the values in the object. By overriding the type and giving it the **same name** as the object, we can conveniently import one variable and consume it as both the type and value. This effectively mimics the behaviour of an enum in a safer way.
+
+```ts
+// someOtherFile.ts
+
+import { Color } from "./color.ts";
+
+const red: Color = Color.Red;
+```
+
+It's a slightly ugly bit of TypeScript gymnastics but it's just about palatable and it could be made into a generic utility type.
 
 ### String literal arrays
 
