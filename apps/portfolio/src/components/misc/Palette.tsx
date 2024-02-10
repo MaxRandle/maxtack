@@ -18,14 +18,29 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
     "1100",
     "1200",
     "1300",
-    "1400",
-    "1500",
-    "1600",
   ] as const;
 
-  const hueKeys = ["periwinkle", "emerald", "sky", "deep-red"] as const;
+  const hueKeys = ["grey", "periwinkle", "emerald", "sky", "deep-red"] as const;
 
   const colors = {
+    grey: {
+      "100": "bg-base-100",
+      "200": "bg-base-200",
+      "300": "bg-base-300",
+      "400": "bg-base-400",
+      "500": "bg-base-500",
+      "600": "bg-base-600",
+      "700": "bg-base-700",
+      "800": "bg-base-800",
+      "900": "bg-base-900",
+      "1000": "bg-base-1000",
+      "1100": "bg-base-1100",
+      "1200": "bg-base-1200",
+      "1300": "bg-base-1300",
+      "1400": "bg-base-1400",
+      "1500": "bg-base-1500",
+      "1600": "bg-base-1600",
+    },
     periwinkle: {
       "100": "bg-primary-100",
       "200": "bg-primary-200",
@@ -100,7 +115,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
     },
   };
 
-  const classes = "grid grid-cols-5 gap-2 justify-center max-w-lg mx-auto";
+  const classes = "grid grid-cols-6 gap-2 justify-center max-w-2xl mx-auto";
 
   return (
     <div className={twMerge(classes, className)} {...props}>

@@ -28,19 +28,87 @@ import {
   Typography,
 } from "ui";
 import { Palette } from "@/components/misc/Palette";
+import { twMerge } from "tailwind-merge";
 
 export default function Page() {
   const MotionSplitContainer = motion(SplitContainer);
   const MotionSplitItem = motion(SplitItem);
 
   return (
-    <main className="min-h-screen overflow-hidden">
+    <main className="min-h-screen overflow-hidden bg-white dark:bg-black">
       <AppNavHeader />
       <Section>
+        <Palette />
+      </Section>
+
+      <Section spacing={"lg"}>
         <Container>
-          <Palette />
+          <p className="text-5xl  text-black dark:text-white">Lorem ipsum</p>
+          <p className="text-xl  text-black dark:text-white">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
+            natus esse et excepturi exercitationem veritatis omnis totam
+            quibusdam laboriosam voluptas quasi accusantium commodi aperiam eum,
+            sit ipsam ex voluptatibus quos? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Ratione culpa ducimus laudantium
+            recusandae vel, doloribus quis officiis excepturi adipisci nostrum
+            odio architecto accusantium fugiat necessitatibus, voluptatibus sint
+            debitis, similique ipsa.
+          </p>
+          <br />
+          <p className="text-5xl text-base-1000 dark:text-base-400">
+            Lorem ipsum
+          </p>
+          <p className="text-xl text-base-1000 dark:text-base-400">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
+            natus esse et excepturi exercitationem veritatis omnis totam
+            quibusdam laboriosam voluptas quasi accusantium commodi aperiam eum,
+            sit ipsam ex voluptatibus quos? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Ratione culpa ducimus laudantium
+            recusandae vel, doloribus quis officiis excepturi adipisci nostrum
+            odio architecto accusantium fugiat necessitatibus, voluptatibus sint
+            debitis, similique ipsa.
+          </p>
+          <br />
+          <p className="text-5xl text-base-900 dark:text-base-500">
+            Lorem ipsum
+          </p>
+          <p className="text-xl text-base-900 dark:text-base-500">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
+            natus esse et excepturi exercitationem veritatis omnis totam
+            quibusdam laboriosam voluptas quasi accusantium commodi aperiam eum,
+            sit ipsam ex voluptatibus quos? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Ratione culpa ducimus laudantium
+            recusandae vel, doloribus quis officiis excepturi adipisci nostrum
+            odio architecto accusantium fugiat necessitatibus, voluptatibus sint
+            debitis, similique ipsa.
+          </p>
         </Container>
       </Section>
+
+      {[
+        "bg-base-100",
+        "bg-base-200",
+        "bg-base-300",
+        "bg-base-400",
+        "bg-base-500",
+        "bg-base-600",
+        "bg-base-700",
+        "bg-base-800",
+        "bg-base-900",
+        "bg-base-1000",
+        "bg-base-1100",
+        "bg-base-1200",
+        "bg-base-1300",
+        "bg-base-1400",
+      ]
+        .reverse()
+        .map((color) => (
+          <Section key={color}>
+            <Container>
+              <div className={twMerge("w-full h-80", color)}></div>
+            </Container>
+          </Section>
+        ))}
 
       <Section>
         <Container>
