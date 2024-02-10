@@ -46,7 +46,7 @@
     "framer-motion": "^10.16.4",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
-    "jotai": "^2.5.0",
+    "jotai": "^2.6.4",
     "next": "^14.0.0",
     "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
