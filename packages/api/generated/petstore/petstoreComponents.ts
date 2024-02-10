@@ -48,11 +48,11 @@ export const useUpdatePet = (
     Schemas.Pet,
     UpdatePetError,
     UpdatePetVariables
-  >(
-    (variables: UpdatePetVariables) =>
+  >({
+    mutationFn: (variables: UpdatePetVariables) =>
       fetchUpdatePet({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type AddPetError = Fetcher.ErrorWrapper<undefined>;
@@ -82,11 +82,11 @@ export const useAddPet = (
   >
 ) => {
   const { fetcherOptions } = usePetstoreContext();
-  return reactQuery.useMutation<Schemas.Pet, AddPetError, AddPetVariables>(
-    (variables: AddPetVariables) =>
+  return reactQuery.useMutation<Schemas.Pet, AddPetError, AddPetVariables>({
+    mutationFn: (variables: AddPetVariables) =>
       fetchAddPet({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type FindPetsByStatusQueryParams = {
@@ -133,7 +133,7 @@ export const useFindPetsByStatus = <TData = FindPetsByStatusResponse>(
       FindPetsByStatusError,
       TData
     >,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
@@ -142,19 +142,17 @@ export const useFindPetsByStatus = <TData = FindPetsByStatusResponse>(
     FindPetsByStatusResponse,
     FindPetsByStatusError,
     TData
-  >(
-    queryKeyFn({
+  >({
+    queryKey: queryKeyFn({
       path: "/pet/findByStatus",
       operationId: "findPetsByStatus",
       variables,
     }),
-    ({ signal }) =>
+    queryFn: ({ signal }) =>
       fetchFindPetsByStatus({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type FindPetsByTagsQueryParams = {
@@ -199,7 +197,7 @@ export const useFindPetsByTags = <TData = FindPetsByTagsResponse>(
       FindPetsByTagsError,
       TData
     >,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
@@ -208,19 +206,17 @@ export const useFindPetsByTags = <TData = FindPetsByTagsResponse>(
     FindPetsByTagsResponse,
     FindPetsByTagsError,
     TData
-  >(
-    queryKeyFn({
+  >({
+    queryKey: queryKeyFn({
       path: "/pet/findByTags",
       operationId: "findPetsByTags",
       variables,
     }),
-    ({ signal }) =>
+    queryFn: ({ signal }) =>
       fetchFindPetsByTags({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type GetPetByIdPathParams = {
@@ -261,20 +257,22 @@ export const useGetPetById = <TData = Schemas.Pet>(
   variables: GetPetByIdVariables,
   options?: Omit<
     reactQuery.UseQueryOptions<Schemas.Pet, GetPetByIdError, TData>,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
     usePetstoreContext(options);
-  return reactQuery.useQuery<Schemas.Pet, GetPetByIdError, TData>(
-    queryKeyFn({ path: "/pet/{petId}", operationId: "getPetById", variables }),
-    ({ signal }) =>
+  return reactQuery.useQuery<Schemas.Pet, GetPetByIdError, TData>({
+    queryKey: queryKeyFn({
+      path: "/pet/{petId}",
+      operationId: "getPetById",
+      variables,
+    }),
+    queryFn: ({ signal }) =>
       fetchGetPetById({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type UpdatePetWithFormPathParams = {
@@ -332,11 +330,11 @@ export const useUpdatePetWithForm = (
     undefined,
     UpdatePetWithFormError,
     UpdatePetWithFormVariables
-  >(
-    (variables: UpdatePetWithFormVariables) =>
+  >({
+    mutationFn: (variables: UpdatePetWithFormVariables) =>
       fetchUpdatePetWithForm({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type DeletePetPathParams = {
@@ -389,11 +387,11 @@ export const useDeletePet = (
   >
 ) => {
   const { fetcherOptions } = usePetstoreContext();
-  return reactQuery.useMutation<undefined, DeletePetError, DeletePetVariables>(
-    (variables: DeletePetVariables) =>
+  return reactQuery.useMutation<undefined, DeletePetError, DeletePetVariables>({
+    mutationFn: (variables: DeletePetVariables) =>
       fetchDeletePet({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type UploadFilePathParams = {
@@ -448,11 +446,11 @@ export const useUploadFile = (
     Schemas.ApiResponse,
     UploadFileError,
     UploadFileVariables
-  >(
-    (variables: UploadFileVariables) =>
+  >({
+    mutationFn: (variables: UploadFileVariables) =>
       fetchUploadFile({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type GetInventoryError = Fetcher.ErrorWrapper<undefined>;
@@ -481,24 +479,22 @@ export const useGetInventory = <TData = GetInventoryResponse>(
   variables: GetInventoryVariables,
   options?: Omit<
     reactQuery.UseQueryOptions<GetInventoryResponse, GetInventoryError, TData>,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
     usePetstoreContext(options);
-  return reactQuery.useQuery<GetInventoryResponse, GetInventoryError, TData>(
-    queryKeyFn({
+  return reactQuery.useQuery<GetInventoryResponse, GetInventoryError, TData>({
+    queryKey: queryKeyFn({
       path: "/store/inventory",
       operationId: "getInventory",
       variables,
     }),
-    ({ signal }) =>
+    queryFn: ({ signal }) =>
       fetchGetInventory({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type PlaceOrderError = Fetcher.ErrorWrapper<undefined>;
@@ -539,11 +535,11 @@ export const usePlaceOrder = (
     Schemas.Order,
     PlaceOrderError,
     PlaceOrderVariables
-  >(
-    (variables: PlaceOrderVariables) =>
+  >({
+    mutationFn: (variables: PlaceOrderVariables) =>
       fetchPlaceOrder({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type GetOrderByIdPathParams = {
@@ -584,24 +580,22 @@ export const useGetOrderById = <TData = Schemas.Order>(
   variables: GetOrderByIdVariables,
   options?: Omit<
     reactQuery.UseQueryOptions<Schemas.Order, GetOrderByIdError, TData>,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
     usePetstoreContext(options);
-  return reactQuery.useQuery<Schemas.Order, GetOrderByIdError, TData>(
-    queryKeyFn({
+  return reactQuery.useQuery<Schemas.Order, GetOrderByIdError, TData>({
+    queryKey: queryKeyFn({
       path: "/store/order/{orderId}",
       operationId: "getOrderById",
       variables,
     }),
-    ({ signal }) =>
+    queryFn: ({ signal }) =>
       fetchGetOrderById({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type DeleteOrderPathParams = {
@@ -653,11 +647,11 @@ export const useDeleteOrder = (
     undefined,
     DeleteOrderError,
     DeleteOrderVariables
-  >(
-    (variables: DeleteOrderVariables) =>
+  >({
+    mutationFn: (variables: DeleteOrderVariables) =>
       fetchDeleteOrder({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type CreateUserError = Fetcher.ErrorWrapper<{
@@ -701,11 +695,11 @@ export const useCreateUser = (
     undefined,
     CreateUserError,
     CreateUserVariables
-  >(
-    (variables: CreateUserVariables) =>
+  >({
+    mutationFn: (variables: CreateUserVariables) =>
       fetchCreateUser({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type CreateUsersWithListInputError = Fetcher.ErrorWrapper<undefined>;
@@ -750,11 +744,11 @@ export const useCreateUsersWithListInput = (
     Schemas.User,
     CreateUsersWithListInputError,
     CreateUsersWithListInputVariables
-  >(
-    (variables: CreateUsersWithListInputVariables) =>
+  >({
+    mutationFn: (variables: CreateUsersWithListInputVariables) =>
       fetchCreateUsersWithListInput({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type LoginUserQueryParams = {
@@ -791,19 +785,22 @@ export const useLoginUser = <TData = string>(
   variables: LoginUserVariables,
   options?: Omit<
     reactQuery.UseQueryOptions<string, LoginUserError, TData>,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
     usePetstoreContext(options);
-  return reactQuery.useQuery<string, LoginUserError, TData>(
-    queryKeyFn({ path: "/user/login", operationId: "loginUser", variables }),
-    ({ signal }) => fetchLoginUser({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+  return reactQuery.useQuery<string, LoginUserError, TData>({
+    queryKey: queryKeyFn({
+      path: "/user/login",
+      operationId: "loginUser",
+      variables,
+    }),
+    queryFn: ({ signal }) =>
+      fetchLoginUser({ ...fetcherOptions, ...variables }, signal),
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type LogoutUserError = Fetcher.ErrorWrapper<undefined>;
@@ -825,20 +822,22 @@ export const useLogoutUser = <TData = undefined>(
   variables: LogoutUserVariables,
   options?: Omit<
     reactQuery.UseQueryOptions<undefined, LogoutUserError, TData>,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
     usePetstoreContext(options);
-  return reactQuery.useQuery<undefined, LogoutUserError, TData>(
-    queryKeyFn({ path: "/user/logout", operationId: "logoutUser", variables }),
-    ({ signal }) =>
+  return reactQuery.useQuery<undefined, LogoutUserError, TData>({
+    queryKey: queryKeyFn({
+      path: "/user/logout",
+      operationId: "logoutUser",
+      variables,
+    }),
+    queryFn: ({ signal }) =>
       fetchLogoutUser({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type GetUserByNamePathParams = {
@@ -871,24 +870,22 @@ export const useGetUserByName = <TData = Schemas.User>(
   variables: GetUserByNameVariables,
   options?: Omit<
     reactQuery.UseQueryOptions<Schemas.User, GetUserByNameError, TData>,
-    "queryKey" | "queryFn"
+    "queryKey" | "queryFn" | "initialData"
   >
 ) => {
   const { fetcherOptions, queryOptions, queryKeyFn } =
     usePetstoreContext(options);
-  return reactQuery.useQuery<Schemas.User, GetUserByNameError, TData>(
-    queryKeyFn({
+  return reactQuery.useQuery<Schemas.User, GetUserByNameError, TData>({
+    queryKey: queryKeyFn({
       path: "/user/{username}",
       operationId: "getUserByName",
       variables,
     }),
-    ({ signal }) =>
+    queryFn: ({ signal }) =>
       fetchGetUserByName({ ...fetcherOptions, ...variables }, signal),
-    {
-      ...options,
-      ...queryOptions,
-    }
-  );
+    ...options,
+    ...queryOptions,
+  });
 };
 
 export type UpdateUserPathParams = {
@@ -939,11 +936,11 @@ export const useUpdateUser = (
     undefined,
     UpdateUserError,
     UpdateUserVariables
-  >(
-    (variables: UpdateUserVariables) =>
+  >({
+    mutationFn: (variables: UpdateUserVariables) =>
       fetchUpdateUser({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type DeleteUserPathParams = {
@@ -993,11 +990,11 @@ export const useDeleteUser = (
     undefined,
     DeleteUserError,
     DeleteUserVariables
-  >(
-    (variables: DeleteUserVariables) =>
+  >({
+    mutationFn: (variables: DeleteUserVariables) =>
       fetchDeleteUser({ ...fetcherOptions, ...variables }),
-    options
-  );
+    ...options,
+  });
 };
 
 export type QueryOperation =
