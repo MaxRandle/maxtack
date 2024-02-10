@@ -1,3 +1,5 @@
-import { atom } from "jotai";
+import { atom, useAtom } from "jotai";
 
-export const ShouldAnimateLogoAtom = atom<boolean>(true);
+const ShouldAnimateLogoAtom = atom<boolean>(true);
+
+export const useShouldAnimateLogoAtom = () => useAtom(ShouldAnimateLogoAtom);

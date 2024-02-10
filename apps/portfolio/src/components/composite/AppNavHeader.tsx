@@ -4,8 +4,7 @@ import { Container, LinkStyleButton, Nav, NavLink } from "ui";
 import { ROUTE_MAP } from "@/config";
 import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 import { usePathname } from "next/navigation";
-import { useAtom } from "jotai";
-import { ShouldAnimateLogoAtom } from "@/store/atoms";
+import { useShouldAnimateLogoAtom } from "@/store/atoms";
 
 const navigations = [
   {
@@ -22,7 +21,7 @@ const navigations = [
 
 export const AppNavHeader = () => {
   const pathname = usePathname();
-  const [_, setShouldAnimate] = useAtom(ShouldAnimateLogoAtom);
+  const [_, setShouldAnimate] = useShouldAnimateLogoAtom();
 
   return (
     <Nav>

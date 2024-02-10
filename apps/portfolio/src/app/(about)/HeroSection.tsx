@@ -1,14 +1,13 @@
 "use client";
 
 import { PUBLIC_ASSET_MAP } from "@/config";
-import { ShouldAnimateLogoAtom } from "@/store/atoms";
 
 import { motion, stagger, useAnimate } from "framer-motion";
 
 import { Container, Figure, Heading, Section } from "ui";
-import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { useShouldAnimateLogoAtom } from "@/store/atoms";
 
 export function HeroSection() {
   const CONTENT = {
@@ -19,7 +18,7 @@ export function HeroSection() {
     },
   };
 
-  const [shouldAnimate, setShouldAnimate] = useAtom(ShouldAnimateLogoAtom);
+  const [shouldAnimate, setShouldAnimate] = useShouldAnimateLogoAtom();
 
   const [sectionScope, animate] = useAnimate();
   const [svgScope, _1] = useAnimate();
