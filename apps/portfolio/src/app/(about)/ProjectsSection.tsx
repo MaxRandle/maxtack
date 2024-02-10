@@ -27,8 +27,6 @@ export async function ProjectsSection() {
     await Promise.all(getProjectSlugs().map(getProjectFromSlug))
   ).map((project) => project.frontMatter);
 
-  console.log("projectsFrontMatter", projectsFrontMatter);
-
   return (
     <Section id="projects" spacing={"lg"}>
       <Container>
