@@ -1,12 +1,12 @@
 "use client";
 
 import { PUBLIC_ASSET_MAP } from "@/config";
+import { ShouldAnimateLogoAtom } from "@/store/atoms";
 
 import { motion, stagger, useAnimate } from "framer-motion";
 
 import { Container, Figure, Heading, Section } from "ui";
 import { useAtom } from "jotai";
-import { ShouldAnimateLogoAtom } from "../layout";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
