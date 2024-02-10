@@ -5,7 +5,7 @@ import { ROUTE_MAP } from "@/config";
 import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 import { usePathname } from "next/navigation";
 import { useAtom } from "jotai";
-import { ShouldAnimateLogoAtom } from "@/app/layout";
+import { ShouldAnimateLogoAtom } from "@/store/atoms";
 
 const navigations = [
   {
