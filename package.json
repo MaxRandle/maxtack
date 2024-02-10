@@ -7,10 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "dev:web": "turbo run dev --filter=web",
-    "lint": "turbo run lint",
+    "build": "npx turbo run build",
+    "dev": "npx turbo run dev",
+    "dev:web": "npx turbo run dev --filter=web",
+    "lint": "npx turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "codegen:clean": "cd packages && cd api && rm -rf generated",
     "codegen:petstore": "cd packages && cd api && npx openapi-codegen gen petstore",
