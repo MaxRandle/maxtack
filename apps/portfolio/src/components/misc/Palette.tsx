@@ -20,7 +20,14 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
     "1300",
   ] as const;
 
-  const hueKeys = ["grey", "periwinkle", "emerald", "sky", "deep-red"] as const;
+  const hueKeys = [
+    // "pearl",
+    "periwinkle",
+    "warning",
+    "emerald",
+    "sky",
+    "deep-red",
+  ] as const;
 
   const colors = {
     grey: {
@@ -37,9 +44,36 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "1100": "bg-base-1100",
       "1200": "bg-base-1200",
       "1300": "bg-base-1300",
-      "1400": "bg-base-1400",
-      "1500": "bg-base-1500",
-      "1600": "bg-base-1600",
+    },
+    pearl: {
+      "100": "bg-pearl-100",
+      "200": "bg-pearl-200",
+      "300": "bg-pearl-300",
+      "400": "bg-pearl-400",
+      "500": "bg-pearl-500",
+      "600": "bg-pearl-600",
+      "700": "bg-pearl-700",
+      "800": "bg-pearl-800",
+      "900": "bg-pearl-900",
+      "1000": "bg-pearl-1000",
+      "1100": "bg-pearl-1100",
+      "1200": "bg-pearl-1200",
+      "1300": "bg-pearl-1300",
+    },
+    warning: {
+      "100": "bg-warning-100",
+      "200": "bg-warning-200",
+      "300": "bg-warning-300",
+      "400": "bg-warning-400",
+      "500": "bg-warning-500",
+      "600": "bg-warning-600",
+      "700": "bg-warning-700",
+      "800": "bg-warning-800",
+      "900": "bg-warning-900",
+      "1000": "bg-warning-1000",
+      "1100": "bg-warning-1100",
+      "1200": "bg-warning-1200",
+      "1300": "bg-warning-1300",
     },
     periwinkle: {
       "100": "bg-primary-100",
@@ -55,9 +89,6 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "1100": "bg-primary-1100",
       "1200": "bg-primary-1200",
       "1300": "bg-primary-1300",
-      "1400": "bg-primary-1400",
-      "1500": "bg-primary-1500",
-      "1600": "bg-primary-1600",
     },
     emerald: {
       "100": "bg-success-100",
@@ -73,9 +104,6 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "1100": "bg-success-1100",
       "1200": "bg-success-1200",
       "1300": "bg-success-1300",
-      "1400": "bg-success-1400",
-      "1500": "bg-success-1500",
-      "1600": "bg-success-1600",
     },
     sky: {
       "100": "bg-info-100",
@@ -91,9 +119,6 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "1100": "bg-info-1100",
       "1200": "bg-info-1200",
       "1300": "bg-info-1300",
-      "1400": "bg-info-1400",
-      "1500": "bg-info-1500",
-      "1600": "bg-info-1600",
     },
     "deep-red": {
       "100": "bg-danger-100",
@@ -109,9 +134,6 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "1100": "bg-danger-1100",
       "1200": "bg-danger-1200",
       "1300": "bg-danger-1300",
-      "1400": "bg-danger-1400",
-      "1500": "bg-danger-1500",
-      "1600": "bg-danger-1600",
     },
   };
 

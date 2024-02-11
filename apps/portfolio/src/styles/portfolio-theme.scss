@@ -18,9 +18,6 @@
   --primary-1100: var(--cyenta-1100);
   --primary-1200: var(--cyenta-1200);
   --primary-1300: var(--cyenta-1300);
-  --primary-1400: var(--cyenta-1400);
-  --primary-1500: var(--cyenta-1500);
-  --primary-1600: var(--cyenta-1600);
 
   --base-100: var(--grey-100);
   --base-200: var(--grey-200);
@@ -35,14 +32,11 @@
   --base-1100: var(--grey-1100);
   --base-1200: var(--grey-1200);
   --base-1300: var(--grey-1300);
-  --base-1400: var(--grey-1400);
-  --base-1500: var(--grey-1500);
-  --base-1600: var(--grey-1600);
 
   --bg: var(--base-100);
-  --color: var(--base-1600);
+  --color: var(--base-1300);
   @include dark {
-    --bg: var(--base-1600);
+    --bg: var(--base-1300);
     --color: var(--base-100);
   }
 }
