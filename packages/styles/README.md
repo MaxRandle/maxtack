@@ -7,11 +7,11 @@ Yes, there is such a thing as too much contrast! Uncomfortable and jarring 21.0 
 It's important to get your lightness levels right for grey above all other colors. Grey is the most important and most common color in a UI. The creators of TailwindCSS Adam Wathan and Steve Schoger talk about the importance of designing UI's in greyscale first in their book: [Refactoring UI](https://www.refactoringui.com/).
 
 - `98.5%`: highest lightness that is clearly distinguishable from white
-- `14.0%`: lowest lightness that is clearly distinguishable from black
+- `13.0%`: lowest lightness that is clearly distinguishable from black
 
-There's really no need to have colous outside of these lightness levels because they would be too close to white or black to be meaningful. So they should mark the lightest and darkest shades in our spectrum.
+There's really no need to have colors outside of these lightness levels because they would be too close to white or black to be meaningful. So they should mark the lightest and darkest shades in our spectrum.
 
-These are quite harsh colors though, so we ideally shouldn't be using them for large areas of our UI. We need to find more comfortable lightness levels for our backgrounds and surfaces so that we don't over-expose our retinas and so that our text, icons, and other elements can have a comfortable contrast against them.
+These are quite harsh colors though, so you may not want to use them for large areas of your UI. We need to find more comfortable lightness levels for our backgrounds and surfaces so that we don't over-expose our retinas and so that our text, icons, and other elements can have a comfortable contrast against them.
 
 - `96.5%`: a comfortable lightness for a light background
 - `16.0%`: a comfortable lightness for a dark background
@@ -44,4 +44,4 @@ These lightness levels form the foundation of our color spectrum. We can begin b
 - `1000 27.0%`: gap filler
 - `1100 20.0%`: gap filler
 - `1200 16.0%`: dark background
-- `1300 14.0%`: darkest color
+- `1300 13.0%`: darkest color

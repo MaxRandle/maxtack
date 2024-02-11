@@ -21,26 +21,32 @@ const buttonClasses = cva(
     variants: {
       /**
        * @summary specifies the background and text colors
+       * @default "primary"
        */
       intent: {
         primary: [
           "text-white",
-          "bg-primary-1000 hover:bg-primary-900",
-          "border-primary-1000 hover:border-primary-900",
+          "bg-primary-800 hover:bg-primary-700",
+          "border-primary-800 hover:border-primary-700",
         ],
         secondary: [
-          "text-base-1200 custom-dark:text-base-400",
-          "bg-base-100 hover:bg-base-200 custom-dark:bg-base-1600 custom-dark:hover:bg-base-1400",
-          "border-base-400 hover:border-base-600 custom-dark:border-base-1200 custom-dark:hover:border-base-1000",
+          "text-base-900",
+          "bg-base-100 border-base-400",
+          "hover:bg-base-200 hover:border-base-500",
+
+          "custom-dark:text-base-300",
+          "custom-dark:bg-base-1200 custom-dark:border-base-1000",
+          "custom-dark:hover:bg-base-1100 custom-dark:hover:border-base-800",
         ],
         destructive: [
           "text-white",
-          "bg-danger-1000 hover:bg-danger-900",
-          "border-danger-1000 hover:border-danger-900",
+          "bg-danger-800 hover:bg-danger-700",
+          "border-danger-800 hover:border-danger-700",
         ],
       },
       /**
        * @summary specifies size of the button
+       * @default "md"
        */
       size: {
         md: "h-10 px-5 text-md",
@@ -49,9 +55,8 @@ const buttonClasses = cva(
       disabled: {
         true: [
           "opacity-60 pointer-events-none",
-          "text-base-900 custom-dark:text-base-400",
-          "bg-base-300 custom-dark:bg-base-1000 hover:bg-base-300 custom-dark:hover:bg-base-1000",
-          "border-base-300 custom-dark:border-base-1000 hover:border-base-300 custom-dark:hover:border-base-1000",
+          "text-base-black bg-base-400 border-base-400",
+          "custom-dark:text-white custom-dark:bg-base-1000 custom-dark:border-base-1000",
         ],
       },
     },

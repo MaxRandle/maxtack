@@ -10,8 +10,6 @@ module.exports = {
       ]);
       addUtilities({
         ".inset-center": {
-          // top: "50%",
-          // left: "50%",
           "@apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2":
             {},
         },
@@ -81,6 +79,10 @@ module.exports = {
           1200: "var(--danger-1200)",
           1300: "var(--danger-1300)",
         },
+      },
+      boxShadow: {
+        "glow-sm": "0 0 15px -5px rgba(255, 255, 255, 0.08)",
+        "glow-md": "0 0 25px -2px rgba(255, 255, 255, 0.08)",
       },
       container: {
         center: true,

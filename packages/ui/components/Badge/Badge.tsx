@@ -4,8 +4,8 @@ import { twMerge } from "tailwind-merge";
 
 const BadgeVariants = cva(
   [
-    "bg-primary-300 text-primary-1100",
-    "custom-dark:bg-primary-1300 custom-dark:text-primary-400",
+    "bg-primary-300 text-primary-800",
+    "custom-dark:bg-primary-1000 custom-dark:text-primary-400",
     "rounded-full h-6 text-sm px-3 inline-flex items-center justify-center",
   ],
   {

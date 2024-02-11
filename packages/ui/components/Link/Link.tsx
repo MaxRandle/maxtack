@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 
 const LinkVariants = cva([
-  "text-primary-1000 custom-dark:text-primary-700",
+  "text-primary-700 custom-dark:text-primary-500",
   "font-bold tracking-wide",
 ]);
 

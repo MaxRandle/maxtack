@@ -179,7 +179,7 @@ export function HeroSection() {
               },
             }}
             initial="initial"
-            className="fill-primary-700 stroke-primary-700 stroke-[1.5] dark:fill-primary-700 dark:stroke-primary-700"
+            className="stroke-[1.5] fill-primary-600 stroke-primary-600 dark:fill-primary-600 dark:stroke-primary-600"
             d="m0 0 20 32L0 64h20l12-20h-8l16-24h-8L20 0H0Z"
           />
           <motion.path
@@ -192,7 +192,7 @@ export function HeroSection() {
               },
             }}
             initial="initial"
-            className="fill-primary-1300 stroke-primary-1300 stroke-[1.5] dark:fill-base-300 dark:stroke-base-300"
+            className="stroke-[1.5] fill-primary-1000 stroke-primary-1000 dark:fill-base-300 dark:stroke-base-300"
             d="M64 64 44 32 64 0H44L32 20h8L24 44h8l12 20h20Z"
           />
         </motion.svg>

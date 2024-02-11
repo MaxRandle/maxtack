@@ -16,10 +16,10 @@ const SectionVariants = cva("", {
      */
     palette: {
       transparent: ["py-0 sm:py-0"],
-      surface: ["my-0 sm:my-0", "bg-base-200 custom-dark:bg-base-1500"],
+      surface: ["my-0 sm:my-0", "bg-base-300 custom-dark:bg-base-1200"],
       primary: [
         "my-0 sm:my-0",
-        "bg-primary-1300 custom-dark:bg-primary-1500",
+        "bg-primary-900 custom-dark:bg-primary-1100",
         "dark",
       ],
     },

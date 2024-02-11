@@ -3,28 +3,37 @@ import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 import React from "react";
 
-const CardVariants = cva(
-  [
-    "rounded-lg overflow-hidden border border-base-400 custom-dark:border-base-1300",
-  ],
-  {
-    variants: {
-      palette: {
-        base: "bg-base-100 custom-dark:bg-base-1600",
-        surface: "bg-base-200 custom-dark:bg-base-1500",
-      },
-      elevation: {
-        flat: "",
-        low: "shadow-sm custom-dark:shadow-glow-md",
-        high: "shadow-lg custom-dark:shadow-glow-lg",
-      },
+const CardVariants = cva(["rounded-lg overflow-hidden border"], {
+  variants: {
+    /**
+     * @summary Specifies the background color of the card.
+     * @default "surface"
+     */
+    palette: {
+      base: [
+        "bg-base-100 border-base-300",
+        "custom-dark:bg-base-1300 custom-dark:border-base-1000",
+      ],
+      surface: [
+        "bg-base-200 border-base-400",
+        "custom-dark:bg-base-1200 custom-dark:border-base-1000",
+      ],
     },
-    defaultVariants: {
-      palette: "surface",
-      elevation: "low",
+    /**
+     * @summary Specifies the elevation of the card.
+     * @default "low"
+     */
+    elevation: {
+      flat: "",
+      low: "shadow-md custom-dark:shadow-glow-sm",
+      high: "shadow-lg custom-dark:shadow-glow-md",
     },
-  }
-);
+  },
+  defaultVariants: {
+    palette: "surface",
+    elevation: "low",
+  },
+});
 
 export type CardProps = React.ComponentPropsWithoutRef<"div"> &
   VariantProps<typeof CardVariants>;
@@ -49,8 +58,8 @@ export const CardLink = React.forwardRef<
   const focusClasses = [
     "transition-colors",
     "focus:ring-active",
-    "hover:bg-base-300 custom-dark:hover:bg-base-1400",
-    "hover:border-base-600 custom-dark:hover:border-base-1000",
+    "hover:bg-base-300 hover:border-base-500",
+    "custom-dark:hover:bg-base-1100 custom-dark:hover:border-base-900",
   ];
 
   const classes = CardVariants({ palette, elevation });

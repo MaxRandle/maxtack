@@ -36,7 +36,7 @@ export default function Page() {
   const MotionSplitItem = motion(SplitItem);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-base-200 dark:bg-base-1200">
+    <main className="min-h-screen overflow-hidden bg-base-200 dark:bg-base-1300">
       <AppNavHeader />
       <Section>
         <Palette />
@@ -188,20 +188,22 @@ export default function Page() {
       </Section>
 
       <Section>
-        <Container>
-          <Card className="mt-6" elevation="high">
-            <CardContent>
-              <AvatarContainer>
-                <Avatar src="https://placekitten.com/220/220" fallback="CF" />
-                <div>
-                  <Heading level="h3">Cat Catterson</Heading>
-                  <Typography level="body" palette="weaker">
-                    Head of CATering
-                  </Typography>
-                </div>
-              </AvatarContainer>
-            </CardContent>
-          </Card>
+        <Container className="space-y-6">
+          {(["high", "low", "flat"] as const).map((elevation) => (
+            <Card palette={"surface"} key={elevation} elevation={elevation}>
+              <CardContent>
+                <AvatarContainer>
+                  <Avatar src="https://placekitten.com/220/220" fallback="CF" />
+                  <div>
+                    <Heading level="h3">Cat Catterson</Heading>
+                    <Typography level="body" palette="weaker">
+                      Head of CATering
+                    </Typography>
+                  </div>
+                </AvatarContainer>
+              </CardContent>
+            </Card>
+          ))}
         </Container>
       </Section>
 
