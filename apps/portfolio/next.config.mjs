@@ -8,7 +8,11 @@ const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   reactStrictMode: true,
   images: {
-    domains: ["dummyimage.com", "placekitten.com"],
+    remotePatterns: [
+      {
+        hostname: "placekitten.com",
+      },
+    ],
   },
 };
 
