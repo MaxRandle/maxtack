@@ -10,6 +10,7 @@ export * from "./components/Heading";
 export * from "./components/Input";
 export * from "./components/Link";
 export * from "./components/Nav";
+export * from "./components/Page";
 export * from "./components/Section";
 export * from "./components/Typography";
 export * from "./components/Split";

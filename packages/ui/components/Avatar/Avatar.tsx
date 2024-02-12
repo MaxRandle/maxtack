@@ -5,13 +5,17 @@ import NextImage, { ImageProps as NextImageProps } from "next/image";
 
 const AvatarVariants = cva(
   [
-    "text-primary-1000 custom-dark:text-primary-600",
-    "bg-primary-300 custom-dark:bg-base-1400 ring-base-100 custom-dark:ring-base-1600",
+    "text-primary-800 bg-primary-300 ring-base-200",
+    "custom-dark:text-primary-500 custom-dark:bg-base-1000 custom-dark:ring-base-1200",
     "relative shrink-0 overflow-hidden inline-block rounded-full",
     "group-[]/avatar-group:first:ml-0",
   ],
   {
     variants: {
+      /**
+       * @summary size of the avatar
+       * @default "md"
+       */
       size: {
         sm: [
           "text-lg w-12 h-12",

@@ -43,7 +43,7 @@ export const MDXComponentsMap: MDXComponents = {
   ),
   a: (props: ExternalLinkProps) => (
     <ExternalLink
-      className="mt-4 print:mt-2 print:text-xs print:font-normal print:text-base-1100 print:dark:text-base-600"
+      className="mt-4 print:mt-2 print:text-xs print:font-normal print:text-base-900 print:dark:text-base-500"
       {...props}
     />
   ),
@@ -61,7 +61,7 @@ export const MDXComponentsMap: MDXComponents = {
   ),
   li: (props) => (
     <li
-      className="ml-12 space-x-2 text-base-1100 marker:text-base-1100 dark:text-base-600 marker:dark:text-base-600 print:ml-6"
+      className="ml-12 space-x-2 text-base-900 marker:text-base-900 dark:text-base-500 marker:dark:text-base-500 print:ml-6"
       {...props}
     />
   ),
@@ -70,7 +70,7 @@ export const MDXComponentsMap: MDXComponents = {
   hr: (props) => <hr className="mt-4 print:mt-2" {...props} />,
   table: (props) => (
     <table
-      className="mt-4 w-full text-base-1100 dark:text-base-600 print:mt-2 print:text-xs"
+      className="mt-4 w-full text-base-900 dark:text-base-500 print:mt-2 print:text-xs"
       {...props}
     />
   ),

@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Params }) {
         <Container>
           <Link href={`${ROUTE_MAP.about.root}#projects`}>
             {`Back to `}
-            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
+            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1000">
               about
             </code>
           </Link>

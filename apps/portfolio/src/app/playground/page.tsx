@@ -28,18 +28,65 @@ import {
   Typography,
 } from "ui";
 import { Palette } from "@/components/misc/Palette";
+import { twMerge } from "tailwind-merge";
+import React from "react";
 
 export default function Page() {
   const MotionSplitContainer = motion(SplitContainer);
   const MotionSplitItem = motion(SplitItem);
 
   return (
-    <main className="min-h-screen overflow-hidden">
+    <main className="min-h-screen overflow-hidden bg-base-200 dark:bg-base-1300">
       <AppNavHeader />
       <Section>
+        <Palette />
+      </Section>
+
+      <Section spacing={"lg"}>
         <Container>
-          <Palette />
+          {(["base", "weak", "weaker", "primary"] as const).map((palette) => (
+            <React.Fragment key={palette}>
+              <Heading level="h1" palette={palette}>
+                Lorem ipsum
+              </Heading>
+              <Typography level="subheading" palette={palette}>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Deleniti natus esse et excepturi exercitationem veritatis omnis
+                totam quibusdam laboriosam voluptas quasi accusantium commodi
+                aperiam eum, sit ipsam ex voluptatibus quos? Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Ratione culpa ducimus
+                laudantium recusandae vel, doloribus quis officiis excepturi
+                adipisci nostrum odio architecto accusantium fugiat
+                necessitatibus, voluptatibus sint debitis, similique ipsa.
+              </Typography>
+              <br />
+            </React.Fragment>
+          ))}
         </Container>
+      </Section>
+
+      <Section className="space-y-2">
+        {[
+          "bg-base-100",
+          "bg-base-200",
+          "bg-base-300",
+          "bg-base-400",
+          "bg-base-500",
+          "bg-base-600",
+          "bg-base-700",
+          "bg-base-800",
+          "bg-base-900",
+          "bg-base-1000",
+          "bg-base-1100",
+          "bg-base-1200",
+          "bg-base-1300",
+        ]
+          .reverse()
+          .map((color) => (
+            <Container key={color}>
+              <div className={twMerge("w-full h-20", color)}></div>
+            </Container>
+          ))}
       </Section>
 
       <Section>
@@ -141,20 +188,22 @@ export default function Page() {
       </Section>
 
       <Section>
-        <Container>
-          <Card className="mt-6" elevation="high">
-            <CardContent>
-              <AvatarContainer>
-                <Avatar src="https://placekitten.com/220/220" fallback="CF" />
-                <div>
-                  <Heading level="h3">Cat Catterson</Heading>
-                  <Typography level="body" palette="weaker">
-                    Head of CATering
-                  </Typography>
-                </div>
-              </AvatarContainer>
-            </CardContent>
-          </Card>
+        <Container className="space-y-6">
+          {(["high", "low", "flat"] as const).map((elevation) => (
+            <Card palette={"surface"} key={elevation} elevation={elevation}>
+              <CardContent>
+                <AvatarContainer>
+                  <Avatar src="https://placekitten.com/220/220" fallback="CF" />
+                  <div>
+                    <Heading level="h3">Cat Catterson</Heading>
+                    <Typography level="body" palette="weaker">
+                      Head of CATering
+                    </Typography>
+                  </div>
+                </AvatarContainer>
+              </CardContent>
+            </Card>
+          ))}
         </Container>
       </Section>
 

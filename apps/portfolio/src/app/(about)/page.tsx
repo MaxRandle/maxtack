@@ -1,4 +1,4 @@
-import { AppNavHeader } from "@/components/composite/AppNavHeader";
+import { Page } from "ui";
 
 import { ROUTE_MAP } from "@/config";
 
@@ -11,11 +11,9 @@ import { ToolsSection } from "./ToolsSection";
 import { ProjectsSection } from "./ProjectsSection";
 import { ButtonStyleLink, Container, Divider } from "ui";
 
-export default async function Page() {
+export default async function AboutPage() {
   return (
-    <main className="min-h-screen overflow-hidden">
-      <AppNavHeader />
-
+    <Page>
       <HeroSection />
 
       <Container className="flex w-full items-center">
@@ -38,6 +36,6 @@ export default async function Page() {
       <ToolsSection />
 
       <ProjectsSection />
-    </main>
+    </Page>
   );
 }

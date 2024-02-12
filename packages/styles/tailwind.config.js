@@ -10,8 +10,6 @@ module.exports = {
       ]);
       addUtilities({
         ".inset-center": {
-          // top: "50%",
-          // left: "50%",
           "@apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2":
             {},
         },
@@ -35,9 +33,6 @@ module.exports = {
           1100: "var(--success-1100)",
           1200: "var(--success-1200)",
           1300: "var(--success-1300)",
-          1400: "var(--success-1400)",
-          1500: "var(--success-1500)",
-          1600: "var(--success-1600)",
         },
         info: {
           100: "var(--info-100)",
@@ -53,9 +48,6 @@ module.exports = {
           1100: "var(--info-1100)",
           1200: "var(--info-1200)",
           1300: "var(--info-1300)",
-          1400: "var(--info-1400)",
-          1500: "var(--info-1500)",
-          1600: "var(--info-1600)",
         },
         warning: {
           100: "var(--warning-100)",
@@ -71,9 +63,6 @@ module.exports = {
           1100: "var(--warning-1100)",
           1200: "var(--warning-1200)",
           1300: "var(--warning-1300)",
-          1400: "var(--warning-1400)",
-          1500: "var(--warning-1500)",
-          1600: "var(--warning-1600)",
         },
         danger: {
           100: "var(--danger-100)",
@@ -89,10 +78,11 @@ module.exports = {
           1100: "var(--danger-1100)",
           1200: "var(--danger-1200)",
           1300: "var(--danger-1300)",
-          1400: "var(--danger-1400)",
-          1500: "var(--danger-1500)",
-          1600: "var(--danger-1600)",
         },
+      },
+      boxShadow: {
+        "glow-sm": "0 0 15px -5px rgba(255, 255, 255, 0.08)",
+        "glow-md": "0 0 25px -2px rgba(255, 255, 255, 0.08)",
       },
       container: {
         center: true,

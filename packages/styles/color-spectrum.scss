@@ -11,10 +11,7 @@ $shade-map: (
   "1000",
   "1100",
   "1200",
-  "1300",
-  "1400",
-  "1500",
-  "1600"
+  "1300"
 );
 
 $h-map: (
@@ -31,119 +28,117 @@ $h-map: (
   "mahogany": 16,
   "olive": 130,
 
-  // primary/theme colors
+  // vibrant colors
   "magenta": 328,
   "cyan": 195,
-  "cyenta": 282,
+  "periwinkle": 282,
   "teal": 185,
   "deep-orange": 48,
   "fuchsia": 325,
   "rose": 16,
   "lime": 130,
-
-  // status colors
   "emerald": 155,
   "sky": 230,
-  "amber": 70,
   "red": 30
 );
 
 $l-map: (
-  "100": 98%,
-  // 2
-  "200": 96%,
-  // 4
-  "300": 92%,
-  // 6
-  "400": 86%,
-  // 6
-  "500": 80%,
-  // 6
-  "600": 74%,
-  // 6
-  "700": 68%,
-  // 7
-  "800": 61%,
-  // 7
-  "900": 54%,
-  // 7
-  "1000": 47%,
-  // 7
-  "1100": 40%,
-  // 6
-  "1200": 34%,
-  // 6
-  "1300": 28%,
-  // 6
-  "1400": 22%,
-  // 6
-  "1500": 16%,
-  // 4
-  "1600": 12%,
+  "100": /* */ 98.5%,
+  //            2.0,
+  "200": /* */ 96.5%,
+  //            3.5,
+  "300": /* */ 93%,
+  //            5.0,
+  "400": /* */ 86%,
+  //           13.0,
+  "500": /* */ 73%,
+  //           11.0,
+  "600": /* */ 62%,
+  //           11.0,
+  "700": /* */ 51%,
+  //            7.0,
+  "800": /* */ 44%,
+  //            6.0,
+  "900": /* */ 38%,
+  //           11.0,
+  "1000": /**/ 27%,
+  //            7.0,
+  "1100": /**/ 20%,
+  //            4.0,
+  "1200": /**/ 16%,
+  //            3.0,
+  "1300": /**/ 13%,
 );
 
-$primary-chroma-map: (
-  "100": 0.02,
-  "200": 0.04,
-  "300": 0.08,
-  "400": 0.15,
-  "500": 0.18,
-  "600": 0.23,
-  "700": 0.27,
-  "800": 0.25,
-  "900": 0.22,
-  "1000": 0.19,
-  "1100": 0.16,
-  "1200": 0.12,
-  "1300": 0.09,
-  "1400": 0.06,
-  "1500": 0.04,
-  "1600": 0.04,
+$vibrant-chroma-map: (
+  "100": /* */ 0.02,
+  "200": /* */ 0.06,
+  "300": /* */ 0.12,
+  "400": /* */ 0.18,
+  "500": /* */ 0.21,
+  "600": /* */ 0.24,
+  "700": /* */ 0.21,
+  "800": /* */ 0.18,
+  "900": /* */ 0.15,
+  "1000": /**/ 0.1,
+  "1100": /**/ 0.07,
+  "1200": /**/ 0.04,
+  "1300": /**/ 0.02,
 );
 
-$neutral-chroma-map: (
-  "100": 0,
-  "200": 0,
-  "300": 0,
-  "400": 0,
-  "500": 0,
-  "600": 0,
-  "700": 0,
-  "800": 0,
-  "900": 0,
-  "1000": 0,
-  "1100": 0,
-  "1200": 0,
-  "1300": 0,
-  "1400": 0,
-  "1500": 0,
-  "1600": 0,
+$muted-chroma-map: (
+  "100": /* */ 0.02,
+  "200": /* */ 0.03,
+  "300": /* */ 0.06,
+  "400": /* */ 0.09,
+  "500": /* */ 0.1,
+  "600": /* */ 0.1,
+  "700": /* */ 0.1,
+  "800": /* */ 0.09,
+  "900": /* */ 0.07,
+  "1000": /**/ 0.05,
+  "1100": /**/ 0.03,
+  "1200": /**/ 0.02,
+  "1300": /**/ 0.02,
 );
 
 $accent-chroma-map: (
-  "100": 0.02,
-  "200": 0.02,
-  "300": 0.02,
-  "400": 0.02,
-  "500": 0.02,
-  "600": 0.02,
-  "700": 0.02,
-  "800": 0.02,
-  "900": 0.02,
-  "1000": 0.02,
-  "1100": 0.02,
-  "1200": 0.02,
-  "1300": 0.02,
-  "1400": 0.02,
-  "1500": 0.02,
-  "1600": 0.02,
+  "100": /* */ 0.02,
+  "200": /* */ 0.02,
+  "300": /* */ 0.02,
+  "400": /* */ 0.02,
+  "500": /* */ 0.02,
+  "600": /* */ 0.02,
+  "700": /* */ 0.02,
+  "800": /* */ 0.02,
+  "900": /* */ 0.02,
+  "1000": /**/ 0.02,
+  "1100": /**/ 0.02,
+  "1200": /**/ 0.02,
+  "1300": /**/ 0.02,
+);
+
+$neutral-chroma-map: (
+  "100": /* */ 0,
+  "200": /* */ 0,
+  "300": /* */ 0,
+  "400": /* */ 0,
+  "500": /* */ 0,
+  "600": /* */ 0,
+  "700": /* */ 0,
+  "800": /* */ 0,
+  "900": /* */ 0,
+  "1000": /**/ 0,
+  "1100": /**/ 0,
+  "1200": /**/ 0,
+  "1300": /**/ 0,
 );
 
 $chroma-map: (
-  // neutral
+  // neutral colors
   "grey": $neutral-chroma-map,
 
-  // accent
+  // accent colors
   "plum": $accent-chroma-map,
   "mist": $accent-chroma-map,
   "rust": $accent-chroma-map,
@@ -153,31 +148,55 @@ $chroma-map: (
   "mahogany": $accent-chroma-map,
   "olive": $accent-chroma-map,
 
-  // primary
-  "magenta": $primary-chroma-map,
-  "cyan": $primary-chroma-map,
-  "deep-orange": $primary-chroma-map,
-  "cyenta": $primary-chroma-map,
-  "teal": $primary-chroma-map,
-  "fuchsia": $primary-chroma-map,
-  "rose": $primary-chroma-map,
-  "lime": $primary-chroma-map,
+  // vibrant colors
+  "magenta": $vibrant-chroma-map,
+  "cyan": $vibrant-chroma-map,
+  "deep-orange": $vibrant-chroma-map,
+  "periwinkle": $vibrant-chroma-map,
+  "teal": $vibrant-chroma-map,
+  "fuchsia": $vibrant-chroma-map,
+  "rose": $vibrant-chroma-map,
+  "lime": $vibrant-chroma-map,
+  "emerald": $vibrant-chroma-map,
+  "sky": $vibrant-chroma-map,
+  "red": $vibrant-chroma-map
+);
 
-  // status
-  "emerald": $primary-chroma-map,
-  "sky": $primary-chroma-map,
-  "amber": $primary-chroma-map,
-  "red": $primary-chroma-map
+// Yellowish colors are a special case because
+// their maximum chroma at lower shades is poor.
+// Humans are bad at perceiving yellow at low lightness
+// so we twist the hue towards orange to compensate.
+$amber-shade-hue-map: (
+  "100": /*  */ 95,
+  "200": /*  */ 95,
+  "300": /*  */ 95,
+  "400": /*  */ 95,
+  "500": /*  */ 90,
+  "600": /*  */ 80,
+  "700": /*  */ 70,
+  "800": /*  */ 65,
+  "900": /*  */ 60,
+  "1000": /* */ 55,
+  "1100": /* */ 55,
+  "1200": /* */ 55,
+  "1300": /* */ 55,
 );
 
 :root {
-  @each $color, $chroma in $chroma-map {
-    @each $shade in $shade-map {
+  @each $shade in $shade-map {
+    @each $color, $chroma in $chroma-map {
       --#{$color}-#{$shade}: oklch(
         #{map-get($l-map, $shade)}
           #{map-get($chroma, $shade)}
           #{map-get($h-map, $color)}
       );
     }
+
+    // handle amber separately
+    --amber-#{$shade}: oklch(
+      #{map-get($l-map, $shade)}
+        #{map-get($vibrant-chroma-map, $shade)}
+        #{map-get($amber-shade-hue-map, $shade)}
+    );
   }
 }

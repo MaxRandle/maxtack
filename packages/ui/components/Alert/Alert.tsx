@@ -12,20 +12,20 @@ const AlertVariants = cva(["rounded-xl border-2 p-6 flex flex-col gap-3"], {
   variants: {
     status: {
       success: [
-        "text-success-1200 border-success-800 bg-success-100",
-        "custom-dark:text-success-300 custom-dark:border-success-700 custom-dark:bg-success-1500",
+        "text-success-800 border-success-600 bg-success-200",
+        "custom-dark:text-success-300 custom-dark:border-success-600 custom-dark:bg-success-1200",
       ],
       info: [
-        "text-info-1200 border-info-800 bg-info-100",
-        "custom-dark:text-info-300 custom-dark:border-info-700 custom-dark:bg-info-1500",
+        "text-info-800 border-info-600 bg-info-200",
+        "custom-dark:text-info-300 custom-dark:border-info-600 custom-dark:bg-info-1200",
       ],
       warning: [
-        "text-warning-1200 border-warning-800 bg-warning-100",
-        "custom-dark:text-warning-300 custom-dark:border-warning-700 custom-dark:bg-warning-1500",
+        "text-warning-800 border-warning-600 bg-warning-200",
+        "custom-dark:text-warning-300 custom-dark:border-warning-600 custom-dark:bg-warning-1200",
       ],
       danger: [
-        "text-danger-1200 border-danger-800 bg-danger-100",
-        "custom-dark:text-danger-300 custom-dark:border-danger-700 custom-dark:bg-danger-1500",
+        "text-danger-800 border-danger-600 bg-danger-200",
+        "custom-dark:text-danger-300 custom-dark:border-danger-600 custom-dark:bg-danger-1200",
       ],
     },
   },

@@ -6,7 +6,7 @@ const NavLinkVariants = cva(
   [
     "focus-visible:ring-active",
     "rounded-lg p-2 text-lg sm:text-xl leading-loose",
-    "text-base-600 hover:text-white",
+    "text-base-500 hover:text-white",
   ],
   {
     variants: {
