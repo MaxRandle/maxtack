@@ -86,6 +86,14 @@ Learn more about the power of Turborepo:
 | ----------------------------------- | ------------------------------------------------- |
 | `npm i [dep] --workspace=[app/pkg]` | Install a dependency in a specific app or package |
 
-# todo
+# TODOs
 
-- [ ] Add Get rid of the enter button in the intro screen
+- [x] Add Get rid of the enter button in the intro screen
+- [ ] Add Hobby Section
+- [x] Investigate markdown to pdf for CV
+  - decided on just making the print styles look ok.
+
+## known issues
+
+- ~~Next app router has a bug that causes the app to crash when using browser navigation if you have an async component marked as `"use client"`. This bug still exists as of version `13.4.7`. Link to issue: https://github.com/vercel/next.js/issues/50382~~
+-
