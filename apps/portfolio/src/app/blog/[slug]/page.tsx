@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: Params }) {
         <Container>
           <Link href={`${ROUTE_MAP.blogPosts.root}`}>
             {`Back to `}
-            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
+            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1000">
               blog
             </code>
           </Link>

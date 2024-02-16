@@ -19,7 +19,7 @@ export default async function Page() {
         <Container>
           <Link className="print:hidden" href={ROUTE_MAP.about.root}>
             {`Back to `}
-            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1300">
+            <code className="rounded-md bg-base-300 p-1 dark:bg-base-1000">
               about
             </code>
           </Link>

@@ -15,7 +15,6 @@ export default async function Page() {
 
   return (
     <main className="min-h-screen overflow-hidden">
-      <AppNavHeader />
       <Section id="blog-posts">
         <Container>
           <Heading className="mt-20" level={"h2"}>
