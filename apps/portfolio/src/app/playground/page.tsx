@@ -13,6 +13,7 @@ import {
   Avatar,
   AvatarContainer,
   AvatarGroup,
+  Badge,
   Button,
   ButtonGroup,
   Card,
@@ -35,34 +36,20 @@ export default function Page() {
   const MotionSplitContainer = motion(SplitContainer);
   const MotionSplitItem = motion(SplitItem);
 
+  // throw an error if query params are found
+  if (typeof window !== "undefined") {
+    if (window.location.search) {
+      throw new Error(
+        "This page does not accept query parameters. Please remove them and try again."
+      );
+    }
+  }
+
   return (
     <main className="min-h-screen overflow-hidden bg-base-200 dark:bg-base-1300">
       <AppNavHeader />
       <Section>
         <Palette />
-      </Section>
-
-      <Section spacing={"lg"}>
-        <Container>
-          {(["base", "weak", "weaker", "primary"] as const).map((palette) => (
-            <React.Fragment key={palette}>
-              <Heading level="h1" palette={palette}>
-                Lorem ipsum
-              </Heading>
-              <Typography level="subheading" palette={palette}>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Deleniti natus esse et excepturi exercitationem veritatis omnis
-                totam quibusdam laboriosam voluptas quasi accusantium commodi
-                aperiam eum, sit ipsam ex voluptatibus quos? Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Ratione culpa ducimus
-                laudantium recusandae vel, doloribus quis officiis excepturi
-                adipisci nostrum odio architecto accusantium fugiat
-                necessitatibus, voluptatibus sint debitis, similique ipsa.
-              </Typography>
-              <br />
-            </React.Fragment>
-          ))}
-        </Container>
       </Section>
 
       <Section className="space-y-2">
@@ -84,25 +71,31 @@ export default function Page() {
           .reverse()
           .map((color) => (
             <Container key={color}>
-              <div className={twMerge("w-full h-20", color)}></div>
+              <div className={twMerge("w-full h-20 rounded-lg", color)}></div>
             </Container>
           ))}
       </Section>
 
       <Section>
         <Container>
-          <Heading level="h1" palette="base">
-            hello dude.
-          </Heading>
-          <Heading level="h1" palette="weak">
-            hello dude.
-          </Heading>
-          <Heading level="h1" palette="weaker">
-            hello dude.
-          </Heading>
-          <Heading level="h1" palette="primary">
-            hello dude.
-          </Heading>
+          {(["base", "weak", "weaker", "primary"] as const).map((palette) => (
+            <React.Fragment key={palette}>
+              <Heading level="h1" palette={palette}>
+                Lorem ipsum
+              </Heading>
+              <Typography level="subheading" palette={palette}>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Deleniti natus esse et excepturi exercitationem veritatis omnis
+                totam quibusdam laboriosam voluptas quasi accusantium commodi
+                aperiam eum, sit ipsam ex voluptatibus quos? Lorem ipsum dolor
+                sit amet consectetur adipisicing elit. Ratione culpa ducimus
+                laudantium recusandae vel, doloribus quis officiis excepturi
+                adipisci nostrum odio architecto accusantium fugiat
+                necessitatibus, voluptatibus sint debitis, similique ipsa.
+              </Typography>
+              <br />
+            </React.Fragment>
+          ))}
         </Container>
       </Section>
 
@@ -188,6 +181,12 @@ export default function Page() {
       </Section>
 
       <Section>
+        <Container>
+          <Badge>99+</Badge>
+        </Container>
+      </Section>
+
+      <Section>
         <Container className="space-y-6">
           {(["high", "low", "flat"] as const).map((elevation) => (
             <Card palette={"surface"} key={elevation} elevation={elevation}>
@@ -210,16 +209,20 @@ export default function Page() {
       <Section>
         <Container className="space-y-4">
           <Alert title="Success alert" status="success">
-            Alert body. Some text or maybe some JSX goes here.
+            Used to give feedback to a user that an action they have just taken
+            was successful.
           </Alert>
           <Alert title="Info alert" status="info">
-            Alert body. Some text or maybe some JSX goes here.
+            Used for general non-essential information.
           </Alert>
           <Alert title="Warning alert" status="warning">
-            Alert body. Some text or maybe some JSX goes here.
+            Used to make the user aware of a possible risk or change to normal
+            behaviour.
           </Alert>
           <Alert title="Danger alert" status="danger">
-            Alert body. Some text or maybe some JSX goes here.
+            Used to alert a user that an action they have just taken has failed,
+            or when it is essential for the user to understand that they are
+            about to take an action that is destructive and irreversible.
           </Alert>
         </Container>
       </Section>
@@ -320,6 +323,35 @@ export default function Page() {
               </Card>
             </MotionSplitItem>
           </MotionSplitContainer>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container className="grid sm:grid-cols-2 gap-8">
+          <Card
+            palette={"gradient"}
+            elevation={"flat"}
+            className="max-w-xs sm:max-w-full w-full mx-auto aspect-square overflow-hidden flex items-center justify-center"
+          >
+            <div className="size-60 shrink-0 relative">
+              <Card className="absolute size-40 top-0 left-0">
+                <CardContent>
+                  <Typography>Lorem ipsum dolor, sit amet.</Typography>
+                </CardContent>
+              </Card>
+              <Card className="absolute size-40 bottom-0 right-0">
+                <CardContent>
+                  <Typography>Debitis nemo nesciunt enim sapiente.</Typography>
+                </CardContent>
+              </Card>
+            </div>
+          </Card>
+          <Typography level="subheading">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
+            natus esse et excepturi exercitationem veritatis omnis totam
+            quibusdam laboriosam voluptas quasi accusantium commodi aperiam eum,
+            sit ipsam ex voluptatibus quos?
+          </Typography>
         </Container>
       </Section>
     </main>

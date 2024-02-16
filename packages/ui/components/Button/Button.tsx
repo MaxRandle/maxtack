@@ -26,6 +26,7 @@ const buttonClasses = cva(
       intent: {
         primary: [
           "text-white",
+          "focus:border-white",
           "bg-primary-800 hover:bg-primary-700",
           "border-primary-800 hover:border-primary-700",
         ],
@@ -40,6 +41,8 @@ const buttonClasses = cva(
         ],
         destructive: [
           "text-white",
+          "focus:ring-danger",
+          "focus:border-white",
           "bg-danger-800 hover:bg-danger-700",
           "border-danger-800 hover:border-danger-700",
         ],

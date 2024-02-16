@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "start:portfolio": "turbo run start --filter=portfolio",
     "dev": "turbo run dev",
     "dev:web": "turbo run dev --filter=web",
     "lint": "turbo run lint",

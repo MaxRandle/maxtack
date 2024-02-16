@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import NextLink from "next/link";
 import React from "react";
 
-const CardVariants = cva(["rounded-lg overflow-hidden border"], {
+const CardVariants = cva(["rounded-lg overflow-hidden"], {
   variants: {
     /**
      * @summary Specifies the background color of the card.
@@ -11,12 +11,18 @@ const CardVariants = cva(["rounded-lg overflow-hidden border"], {
      */
     palette: {
       base: [
+        "border",
         "bg-base-100 border-base-300",
         "custom-dark:bg-base-1300 custom-dark:border-base-1000",
       ],
       surface: [
+        "border",
         "bg-base-200 border-base-400",
         "custom-dark:bg-base-1200 custom-dark:border-base-1000",
+      ],
+      gradient: [
+        "bg-gradient-rad-2",
+        "from-primary-800 custom-dark:from-primary-600 to-transparent",
       ],
     },
     /**

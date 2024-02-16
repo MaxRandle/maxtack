@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 const NavLinkVariants = cva(
   [
-    "focus-visible:ring-active",
+    "focus-visible:ring-active border border-transparent",
     "rounded-lg p-2 text-lg sm:text-xl leading-loose",
     "text-base-500 hover:text-white",
   ],

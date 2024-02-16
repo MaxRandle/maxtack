@@ -84,6 +84,14 @@ module.exports = {
         "glow-sm": "0 0 15px -5px rgba(255, 255, 255, 0.08)",
         "glow-md": "0 0 25px -2px rgba(255, 255, 255, 0.08)",
       },
+      backgroundImage: {
+        "gradient-rad-1":
+          "radial-gradient(var(--tw-gradient-to) -5%, 90%, var(--tw-gradient-from) 102%)",
+        "gradient-rad-2":
+          "radial-gradient(ellipse farthest-corner at 65% 65%, var(--tw-gradient-to) -5%, 90%, var(--tw-gradient-from) 102%)",
+        "gradient-rad-3":
+          "radial-gradient(ellipse farthest-corner at 35% 65%, var(--tw-gradient-to) -5%, 90%, var(--tw-gradient-from) 102%)",
+      },
       container: {
         center: true,
         padding: {

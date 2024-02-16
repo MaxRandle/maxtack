@@ -27,7 +27,7 @@ export const AppNavHeader = () => {
     <Nav>
       <Container className="flex items-center justify-between gap-6 sm:justify-start sm:gap-20">
         <LinkStyleButton
-          className="shrink-0 p-2"
+          className="shrink-0 p-2 border border-transparent"
           onClick={() => setShouldAnimate(true)}
         >
           <BrandLogoIcon size={28} />
