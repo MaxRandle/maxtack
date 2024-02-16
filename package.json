@@ -33,7 +33,7 @@
     "postcss-preset-env": "^9.3.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.6",
-    "sass": "^1.70.0",
+    "sass": "^1.71.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "turbo": "^1.12.3",
