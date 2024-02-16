@@ -33,6 +33,7 @@ updates:
         patterns:
           - "turbo"
           - "@turbo/gen"
+          - "eslint-config-turbo"
       mdx-js:
         patterns:
           - "@mdx-js/*"
