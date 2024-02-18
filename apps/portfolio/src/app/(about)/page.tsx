@@ -2,7 +2,7 @@ import { Page } from "ui";
 
 import { ROUTE_MAP } from "@/config";
 
-import { FiExternalLink } from "react-icons/fi";
+import { FaChevronRight } from "react-icons/fa6";
 
 import { HeroSection } from "./HeroSection";
 import { WorkSection } from "./WorkSection";
@@ -24,7 +24,7 @@ export default async function AboutPage() {
           href={ROUTE_MAP.resume.root}
         >
           {`résumé`}
-          <FiExternalLink />
+          <FaChevronRight size={14} />
         </ButtonStyleLink>
         <Divider className="grow" />
       </Container>

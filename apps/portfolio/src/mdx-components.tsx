@@ -36,7 +36,6 @@ export const MDXComponentsMap: MDXComponents = {
   p: (props: TypographyProps) => (
     <Typography
       className="mt-4 print:mt-2 print:text-xs"
-      palette={"weaker"}
       level={"body"}
       {...props}
     />
@@ -61,7 +60,7 @@ export const MDXComponentsMap: MDXComponents = {
   ),
   li: (props) => (
     <li
-      className="ml-12 space-x-2 text-base-900 marker:text-base-900 dark:text-base-500 marker:dark:text-base-500 print:ml-6"
+      className="ml-12 space-x-2 text-base-900 custom-dark:text-base-400 marker:text-base-900  marker:dark:text-base-500 print:ml-6"
       {...props}
     />
   ),
@@ -70,7 +69,7 @@ export const MDXComponentsMap: MDXComponents = {
   hr: (props) => <hr className="mt-4 print:mt-2" {...props} />,
   table: (props) => (
     <table
-      className="mt-4 w-full text-base-900 dark:text-base-500 print:mt-2 print:text-xs"
+      className="mt-4 w-full text-base-900 custom-dark:text-base-400 print:mt-2 print:text-xs"
       {...props}
     />
   ),
