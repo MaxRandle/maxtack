@@ -31,6 +31,7 @@ import { Palette } from "@/components/misc/Palette";
 import { twMerge } from "tailwind-merge";
 import React from "react";
 import { AppNavHeader } from "@/components/composite/AppNavHeader";
+import { BrandLogoIcon } from "@/components/brand/BrandLogoIcon";
 
 export default function Page() {
   const MotionSplitContainer = motion(SplitContainer);
@@ -185,6 +186,12 @@ export default function Page() {
         <Section>
           <Container>
             <Badge>99+</Badge>
+          </Container>
+        </Section>
+
+        <Section>
+          <Container>
+            <BrandLogoIcon size={512} />
           </Container>
         </Section>
 
