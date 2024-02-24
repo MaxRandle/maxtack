@@ -1,29 +1,41 @@
 ---
 title: Accessible colours
 year: 2023
-summary: A simple and intuitive approach for generating a visually consistent and accessible colour spectrum.
+summary: A practical approach for generating a visually consistent and accessible colour spectrum.
 ---
 
 # Accessible colours
 
 <span className="mx-auto block max-w-xl text-center">
-  A simple and intuitive approach for generating a visually consistent and
-  accessible colour spectrum.
+  A practical approach for generating a visually consistent and accessible
+  colour spectrum.
 </span>
 
 <Palette className="mt-8" />
 
-## Forget everything you know about colour
+## The problem with popular colour palettes
 
-Or at least how computers represent colour. In order to understand why this approach works, you need to completely shift your perspective on the concept of what a colour is.
+### Visually inconsistent and difficult to manage accessibility
 
-## Why are colours hard?
+Let's say you're a fan of TailwindCSS's colour palette, you've just creates a button UI element with your brands primary colour tailwinds `blue-700 #1d4ed8`, and white text, I bet it looks great and is perfectly accessible. Now let's say You want to also create a secondary button with an orange background and white text so you reach for tailwinds `orange-700 #c2410c`. You might be surprised to find that despite both colours being the same shade, the contrast between the text and the background is not as good as it was with the blue button, only `3.55` which is considerably lower than it was with the blue button which had a contrast of `5.16`. In fact, the contrast is so much worse that it's now technically not accessible with a contrast below the minimum accessibility standard contrast of `4.5` for normal sized text.
 
-When most developers or designers think of colour, they think of RGB, hex, and HSL. These are the colour spaces that we use in CSS. They are also the colour spaces that are used by most design tools. But here's the thing...
+This problem is even worse when comparing shades of the greyscale colours to the more vibrant ones. One particularly egregious example is `neutral-600 #525252` and `yellow-600 #ca8a04` which have contrasts of `7.81` and `2.93` (?!) against white respectively. Clearly the concept of "shade" means nothing.
+
+### Not made with dark themed UI's in mind
+
+I invite you to attempt create a dark themed UI using only the colours provided by tailwind. You'll find that trying to include any colour other than the greyscale colours is a real struggle. The vibrant colours are simply too bright to be used in a dark themed UI.
+
+### It doesn't have to be this way.
+
+I would like to hereby propose a new way of generating a colour palette that is visually stunning, perceptually uniform, accessible, and works beautifully in both light and dark themed UI's. But before we can begin discussing the approach, I need you to forget everything you know about colour.
+
+## Re-framing the concept of colour
+
+In order to understand why this works, you need to completely shift your perspective on the concept of what a colour is. When most developers or designers think of colour, they think of RGB, hex, and HSL. These are the colour formats that we use in CSS. They are also the formats that are used by most design tools. But here's the thing...
 
 ### RGB, hex, and HSL do not actually represent colours.
 
-This is the first revelation to wrap your head around. RGB (and by extension hex and HSL) is a representation of the state of a piece of hardware. It is an instruction to be given to a pixel that tells it how much of red, green, and blue light it should emit. It is not tied to a real-world concept of a colour. It follows from this that the sRGB is a standardised representation of the capabilities of hardware.
+This is the first revelation to wrap your head around. RGB (and by extension hex and HSL) is a representation of the state of a piece of hardware. It is an instruction to be given to a pixel that tells it how much of red, green, and blue light it should emit. It is not tied to a real-world concept of a colour. RGB as a format is constrained to represent colours only within the sRGB colour space, which is a standardised representation of the capabilities of hardware.
 
 ## The CIELAB colour space
 
@@ -69,59 +81,75 @@ A result of this is that each variable is completely independent of the others. 
 
 OKLCH is an actual implementation of the LCH specification. It has not achieved widespread browser support yet, but it can still be safely used right now with a postcss plugin.
 
-```scss
-background-color: oklch(50% 0.1 15deg);
-```
+`background-color: oklch(50% 0.1 15deg);`
 
 You can play around with the [OKLCH colour picker](https://oklch.com/).
 
 ## Generating a colour palette
 
-Now we're ready to generate some colours.
+Now that we understand LCH, we're ready to learn how to use LCH to generate a colour palette.
 
-1. Come up with a sequence of lightness values.
-1. Pick a chroma for each lightness value that looks good across a range of hues. Ensuring that no hue results in a colour that appears vastly more saturated than the others for a given lightness value.
-1. Appoint each Lightness-Chroma pair a shade value.
-1. Pick some hues to fit your brand. For example "emerald" at hue 155 as our primary brand color and "sky" at hue 230 as our secondary brand colour.
-1. Generate an OKLCH colour for each shade and hue combination using a sass map.
+The process is as follows:
 
-### Example
+1. Choose a scale of lightness values for grey only
+1. Introduce more hues such as brand and status colours
+1. Tuning chroma values
 
-```
-Shade   Lightness     Chroma
-  100         98%       0.02
-  200         96%       0.04
-  300         92%       0.08
-  400         86%       0.15
-  500         80%       0.18
-  600         74%       0.23
-  700         68%       0.27
-  800         61%       0.25
-  900         54%       0.22
- 1000         47%       0.19
- 1100         40%       0.16
- 1200         34%       0.12
- 1300         28%       0.09
- 1400         22%       0.06
- 1500         16%       0.04
- 1600         12%       0.04
-```
+### Choosing our lightness levels
 
-resulting variables:
+The key factor informing our choices for lightness is _contrast_. Colours are a relative phenomenon, throughout this process it is vitally important that you test your colours against a variety of backgrounds, light and dark.
 
-```scss
---emerald-1100: oklch(40% 0.16 155);
-```
+Yes, there is such a thing as too much contrast! Jarring 21.0 contrast white on black text is a common problem (looking at you, brutalism UI's). The most comfortable contrast for reading body text is actually between 8 and 10 for a light themed UI with dark text, and between 10 and 16 for a dark themed UI with light text. You can and should test this out for yourself.
 
-<div className="mt-4 grow rounded-md bg-success-1100 p-4 text-white">
-  {`emerald-1100`}
-</div>
+It's important to get your lightness levels right for grey above all other colors. Grey is the most important and most common color in a UI. The creators of TailwindCSS Adam Wathan and Steve Schoger talk about the importance of designing UI's in greyscale first in their book: [Refactoring UI](https://www.refactoringui.com/).
 
-```scss
---sky-400: oklch(86% 0.15 230);
-```
+- `98.5%`: highest lightness that is clearly distinguishable from white
+- `13.5%`: lowest lightness that is clearly distinguishable from black
 
-<div className="mt-4 grow rounded-md bg-info-400 p-4 text-black">{`sky-400`}</div>
+There's really no need to have colors outside of these lightness levels because they would be too close to white or black to be meaningful. So they should mark the lightest and darkest shades in our spectrum.
+
+These are quite harsh colors though, so you may not want to use them for large areas of your UI. Let's try to find more comfortable lightness levels for our backgrounds and surfaces so that we don't over-expose our retinas and so that our text, icons, and other elements can have a comfortable contrast against them.
+
+- `96.5%`: a comfortable lightness for a light background
+- `17.5%`: a comfortable lightness for a dark background
+
+These colors also leave plenty of room either side to add layered surfaces which add depth and create an effect of raised or sunken elements against the background.
+
+Now lets find lightness levels that have a comfortable contrast against these backgrounds that we can use for body text, icons, and other elements.
+
+- `86.0%`: ~12 contrast against our dark background
+- `38.0%`: ~9 contrast against our light background
+
+Other lightness levels that we need to consider are the lightness levels that result in a contrast of at least 4.5 against black and white (with some buffer so that when we eventually expand our color spectrum to include other hues, we can be sure that they will still have the minimum contrast for accessibility of 4.5).
+
+- `62.0%`: lowest lightness that results in contrast of at least 4.5 against black for any given hue
+- `51.0%`: highest lightness that results in contrast of at least 4.5 against white for any given hue
+
+Any lightness levels above `62.0%` are always accessible against black, and any lightness levels below `51.0%` are always accessible against white. These colors will be very useful because they are also colors that typically support the highest chroma values for the majority of hues, giving us vibrant colors that we can use for primary action buttons or similar. These two shades are also near the point of maximum chroma, meaning we are able to create the most vibrant colors using these two shades. This makes them nice choices for attention grabbing buttons.
+
+These lightness levels form the foundation of our color spectrum. Lets arrange them into a spectrum, assign each one a 'shade' number, and add a few filler shades wherever there are large gaps.
+
+- ` 100 98.5%`: lightest color
+- ` 200 96.5%`: light background
+- ` 300 93.0%`: gap filler
+- ` 400 86.0%`: light body text
+- ` 500 73.0%`: weaker contrast for de-emphasized light text
+- ` 600 62.0%`: all colors above are accessible against black
+- ` 700 51.0%`: all colors below are accessible against white
+- ` 800 44.0%`: weaker contrast for de-emphasized dark text
+- ` 900 38.0%`: dark body text
+- `1000 28.0%`: gap filler
+- `1100 22.0%`: gap filler
+- `1200 17.5%`: dark background
+- `1300 13.5%`: darkest color
+
+### Introducing colour
+
+W.I.P
+
+### Tuning chroma values
+
+W.I.P
 
 ## Most devices are still limited to sRGB
 

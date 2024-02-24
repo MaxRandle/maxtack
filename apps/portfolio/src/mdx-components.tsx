@@ -21,14 +21,14 @@ export const MDXComponentsMap: MDXComponents = {
   ),
   h2: (props: HeadingProps) => (
     <Heading
-      className="mt-12 print:mt-6 print:text-lg"
+      className="mt-16 print:mt-6 print:text-lg"
       level={"h2"}
       {...props}
     />
   ),
   h3: (props: HeadingProps) => (
     <Heading
-      className="mt-4 print:mt-2 print:text-sm"
+      className="mt-8 print:mt-2 print:text-sm"
       level={"h3"}
       {...props}
     />
@@ -64,8 +64,18 @@ export const MDXComponentsMap: MDXComponents = {
       {...props}
     />
   ),
-  pre: (props) => <pre className="mt-4 print:mt-2 print:text-xs" {...props} />,
-  code: (props) => <code {...props} />,
+  pre: (props) => (
+    <pre
+      className="mt-4 print:mt-2 print:text-xs bg-base-300 custom-dark:bg-base-1100 rounded-sm"
+      {...props}
+    />
+  ),
+  code: (props) => (
+    <code
+      className="bg-base-300 custom-dark:bg-base-1000 rounded-md px-2"
+      {...props}
+    />
+  ),
   hr: (props) => <hr className="mt-4 print:mt-2" {...props} />,
   table: (props) => (
     <table

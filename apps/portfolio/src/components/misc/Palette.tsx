@@ -21,16 +21,16 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
   ] as const;
 
   const hueKeys = [
-    // "pearl",
+    "pearl",
     "periwinkle",
-    "warning",
+    "amber",
     "emerald",
-    "sky",
+    // "sky",
     "deep-red",
   ] as const;
 
   const colors = {
-    grey: {
+    pearl: {
       "100": "bg-base-100",
       "200": "bg-base-200",
       "300": "bg-base-300",
@@ -45,22 +45,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
       "1200": "bg-base-1200",
       "1300": "bg-base-1300",
     },
-    pearl: {
-      "100": "bg-pearl-100",
-      "200": "bg-pearl-200",
-      "300": "bg-pearl-300",
-      "400": "bg-pearl-400",
-      "500": "bg-pearl-500",
-      "600": "bg-pearl-600",
-      "700": "bg-pearl-700",
-      "800": "bg-pearl-800",
-      "900": "bg-pearl-900",
-      "1000": "bg-pearl-1000",
-      "1100": "bg-pearl-1100",
-      "1200": "bg-pearl-1200",
-      "1300": "bg-pearl-1300",
-    },
-    warning: {
+    amber: {
       "100": "bg-warning-100",
       "200": "bg-warning-200",
       "300": "bg-warning-300",
@@ -151,7 +136,7 @@ export const Palette: React.FC<PaletteProps> = ({ className, ...props }) => {
         <Fragment key={shade}>
           <div
             key={shade}
-            className="flex h-10 items-center justify-evenly rounded-md border border-base-300 dark:border-base-1200"
+            className="flex h-10 items-center justify-evenly rounded-md border border-base-300 dark:border-base-900"
           >
             <Typography color="weak">{shade}</Typography>
           </div>
