@@ -23,7 +23,7 @@
     "@openapi-codegen/typescript": "^8.0.0",
     "@turbo/gen": "^1.13.2",
     "@types/mdx": "^2.0.11",
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "autoprefixer": "^10.4.16",
