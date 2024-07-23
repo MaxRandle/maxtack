@@ -38,9 +38,11 @@ export type HeadingProps = React.ComponentPropsWithoutRef<"h1" | "h2" | "h3"> &
   };
 
 export const Heading = React.forwardRef<HTMLParagraphElement, HeadingProps>(
-  ({ palette, level, as, className, ...props }, ref) => {
+  ({ palette, level = "h3", as, className, ...props }, ref) => {
     const classes = HeadingClasses({ palette, level });
 
+    // for some reason CVA allows null props so we have to chain nullish checks
+    // it will be fixed soon. see: https://github.com/joe-bell/cva/issues/253
     const Component = as ?? level ?? "h3";
 
     return (
