@@ -1,6 +1,6 @@
 "use client";
 
-import { useFindPetsByStatus } from "api";
+import { Petstore, Rewards } from "api";
 import {
   Alert,
   Badge,
@@ -13,12 +13,31 @@ import {
   Typography,
 } from "ui";
 
+const { useFindPetsByStatus } = Petstore;
+const { useAchievement } = Rewards;
+
 export default function Page() {
-  const { data, isLoading, error } = useFindPetsByStatus({
+  const {
+    data: petData,
+    isLoading: petIsLoading,
+    error: petError,
+  } = useFindPetsByStatus({
     queryParams: {
       status: "available",
     },
   });
+
+  const {
+    data: rewardData,
+    isLoading: rewardIsLoading,
+    error: rewardError,
+  } = useAchievement({
+    queryParams: {
+      achievement: "LEVEL_UP_TO_1",
+    },
+  });
+
+  console.log(rewardData);
 
   return (
     <>
@@ -48,12 +67,34 @@ export default function Page() {
           </Card>
           <pre>
             <Typography palette="primary">
-              {isLoading ? (
-                "LOADING!!!!!!!!!!!!!!!!"
+              {petIsLoading ? (
+                "PET LOADING..."
               ) : (
-                <code>{JSON.stringify(data, null, 2)}</code>
+                <code>{JSON.stringify(petData, null, 2)}</code>
               )}
-              {error ? <>{(error as any).stack.message}</> : null}
+              {petError ? <>{(petError as any).stack.message}</> : null}
+            </Typography>
+          </pre>
+        </Container>
+      </Section>
+
+      <Section palette="primary">
+        <Container className="space-y-6">
+          <Card>
+            <CardContent>
+              <Typography>Shark</Typography>
+              <Typography>Octopus</Typography>
+              <Typography>Jellyfish</Typography>
+            </CardContent>
+          </Card>
+          <pre>
+            <Typography palette="primary">
+              {rewardIsLoading ? (
+                "REWARD LOADING..."
+              ) : (
+                <code>{JSON.stringify(rewardData, null, 2)}</code>
+              )}
+              {rewardError ? <>{(rewardError as any).stack.message}</> : null}
             </Typography>
           </pre>
         </Container>

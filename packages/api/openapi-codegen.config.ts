@@ -59,4 +59,26 @@ export default defineConfig({
       });
     },
   },
+
+  rewards: {
+    from: {
+      source: "url",
+      url: "https://rewards-microservice.onrender.com/",
+    },
+
+    outputDir: "generated/rewards",
+
+    to: async (context) => {
+      const filenamePrefix = "rewards";
+
+      const { schemasFiles } = await generateSchemaTypes(context, {
+        filenamePrefix,
+      });
+
+      await generateReactQueryComponents(context, {
+        filenamePrefix,
+        schemasFiles,
+      });
+    },
+  },
 });
