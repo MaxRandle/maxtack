@@ -37,3 +37,7 @@ updates:
       mdx-js:
         patterns:
           - "@mdx-js/*"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/postcss"
