@@ -4,7 +4,7 @@ import rehypeHighlight from "rehype-highlight";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["ui"],
+  transpilePackages: ["ui", "design-system"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   reactStrictMode: true,
   images: {

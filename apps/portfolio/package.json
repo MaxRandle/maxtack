@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,11 +12,12 @@
   },
   "dependencies": {
     "api": "*",
-    "styles": "*",
+    "design-system": "*",
     "ui": "*"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "tailwind-config": "*"
   }
 }

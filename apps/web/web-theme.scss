@@ -1,7 +1,7 @@
-@import "styles/mixins.scss";
-@import "styles/colors/pearl.scss";
-@import "styles/colors/periwinkle.scss";
-@import "styles/tailwind-directives.scss";
+@import "design-system/mixins.scss";
+@import "design-system/colors/pearl.scss";
+@import "design-system/colors/periwinkle.scss";
+@import "design-system/tailwind-directives.scss";
 
 :root {
   --primary-100: var(--periwinkle-100);

@@ -1,4 +1,4 @@
-import "@/styles/portfolio-theme.scss";
+import "@/styles/globals.scss";
 
 export const metadata = {
   title: "Max Randle",
@@ -12,7 +12,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        // :root {
+        //   --bg: var(--color-base-100);
+        //   --color: var(--color-base-1300);
+        //   @include dark {
+        //     --bg: var(--color-base-1300);
+        //     --color: var(--color-base-100);
+        //   }
+        // }
+
+        // body {
+        //   background: var(--bg);
+        //   color: var(--color);
+        // }
+
+        className="bg-base-100 text-base-1300 dark:bg-base-1300 dark:text-base-100"
+      >
+        {children}
+      </body>
     </html>
   );
 }

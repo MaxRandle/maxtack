@@ -6,13 +6,17 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint \"**/*.ts*\"",
-    "generate:component": "turbo gen react-component"
+    "generate:component": "turbo gen react-component",
+    "build:styles": "tailwindcss -i ./styles.css -o ./dist/index.css",
+    "dev:styles": "tailwindcss -i ./styles.css -o ./dist/index.css --watch",
+    "build:components": "tsc",
+    "dev:components": "tsc --watch"
   },
   "devDependencies": {
     "eslint-config-custom": "*",
     "tsconfig": "*"
   },
   "dependencies": {
-    "styles": "*"
+    "design-system": "*"
   }
 }

@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "ui": "*",
-    "styles": "*",
+    "design-system": "*",
     "api": "*"
   },
   "devDependencies": {

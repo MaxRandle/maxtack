@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  presets: [require("styles/tailwind.config")],
+  presets: [require("design-system/tailwind.config")],
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "../../packages/ui/**/*.{js,ts,jsx,tsx,mdx}",

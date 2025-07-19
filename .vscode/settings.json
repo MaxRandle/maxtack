@@ -6,5 +6,8 @@
     "petstore",
     "sass",
     "tanstack"
-  ]
+  ],
+  "files.associations": {
+    "tw-*.*css": "tailwindcss"
+  }
 }

@@ -1,3 +1,3 @@
-const rootConfig = require("styles/postcss.config");
+const rootConfig = require("design-system/postcss.config");
 
 module.exports = { ...rootConfig };

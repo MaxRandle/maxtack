@@ -1,0 +1,29 @@
+@import "./mixins.scss";
+@import "tailwindcss";
+
+// for some reason the light mixin is needed otherwise the dark mixin styles won't be applied
+
+// @layer utilities {
+//   .ring-active {
+//     @apply outline-none ring-4 border;
+
+//     @include mixins.light {
+//       @apply border-primary-700 ring-primary-400;
+//     }
+
+//     @include mixins.dark {
+//       @apply border-primary-500 ring-primary-1000;
+//     }
+//   }
+//   .ring-danger {
+//     @apply outline-none ring-4;
+
+//     @include mixins.light {
+//       @apply border-danger-700 ring-danger-400;
+//     }
+
+//     @include mixins.dark {
+//       @apply border-danger-500 ring-danger-1000;
+//     }
+//   }
+// }
